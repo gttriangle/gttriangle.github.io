@@ -1,0 +1,266 @@
+﻿/* Custom Width Via Percentage */
+.w-10 {
+    width: 10%;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.w-70 {
+    width: 70%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-85 {
+    width: 85%;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+
+/* Custom Width Via Pixels */
+.width-50 {
+    width:50px;
+}
+.width-100 {
+    width: 100px;
+}
+.width-125 {
+    width: 125px;
+}
+.width-150 {
+    width: 150px;
+}
+.width-200 {
+    width: 200px;
+}
+.width-250 {
+    width: 250px;
+}
+.width-300 {
+    width: 300px;
+}
+
+
+/* Font Coloring */
+.bg-col {
+    min-width: 800px;
+}
+
+.sm-col {
+    min-width: 75px;
+}
+
+
+/* Used to cap tables in Protocols */
+.mw-table {
+    min-width: 768px;
+}
+.mw-0 {
+    min-width: 0px;
+}
+
+/* Font Coloring */
+.white {
+    color: #fff;
+}
+
+.black {
+    color: #000;
+}
+
+.green {
+    color: #8cc645;
+}
+
+.dgrey {
+    color: #555;
+}
+
+.lgrey {
+    color: #aaa;
+}
+
+.dred {
+    color: #a00;
+}
+
+.red {
+    color: #f00;
+}
+
+.blue {
+    color: #6699cc;
+}
+
+.orange {
+    color: #f90;
+}
+
+/* Truncate */
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Break Word */
+.word-break {
+    word-break: break-all;
+}
+
+/* Used in TDM to prevent double click while saving */
+.disable-select {
+    pointer-events:none;
+}
+
+/* Class For Errors */
+.errorClass {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    margin: .5em 0;
+    border-radius: .5em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+    .errorClass label:first-child, .errorClass strong:first-child {
+        color: #a94442;
+    }
+
+
+    /* Override Padding Classes */
+.paddingleft {
+    padding-left: 15px !important;
+}
+
+.paddingright {
+    padding-right: 15px !important;
+}
+
+.paddingtop {
+    padding-top: .25em !important;
+}
+
+.paddingbottom {
+    padding-bottom: .25em !important;
+}
+
+.paddingFix {
+    padding-left: 0 !important;
+}
+
+
+/* Override Margin Classes */
+.marginleft {
+    margin-left: .5em !important;
+}
+
+.marginright {
+    margin-right: .5em !important;
+}
+
+.margintop {
+    margin-top: .5em !important;
+}
+
+.marginbottom {
+    margin-bottom: .5em !important;
+}
+
+.nomargin {
+    margin: 0 !important;
+}
+
+.no-row-margins {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 8px; /* for vertical scrollbars */
+    height: 15px; /* for horizontal scrollbars */
+    transition: width linear .5s;
+}
+
+body::-webkit-scrollbar:hover {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #555;
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 2em;
+    background: #fff;
+    box-shadow: inset 0 0 10px rgba(0,0,0,.4);
+}
+
+.noScrollBars {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+}
+
+
+/* Smaller Scrollbars Within Divs */
+div::-webkit-scrollbar, textarea::-webkit-scrollbar, ul::-webkit-scrollbar {
+    width: 8px; /* for vertical scrollbars */
+    height: 8px; /* for horizontal scrollbars */
+}
+
+/* Remove focus outline */
+*:focus {
+    outline: none !important;
+}
+
+/* Remove X and ▼ from inputs */
+*::-ms-clear {
+    display: none;
+}
+
+*::-ms-expand {
+    display: none;
+}
+
+/* Change Selection Color */
+::selection {
+    background: #8cc845;
+}
+
+/* Remove Text Highlighting */
+.no-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
