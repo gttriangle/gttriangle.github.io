@@ -1,5 +1,5 @@
 (function (window) {
-
+    'use strict';
     var baseUrl = 'https://gttriangle.github.io/';
 
     angular
