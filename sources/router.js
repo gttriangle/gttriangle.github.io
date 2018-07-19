@@ -9,7 +9,7 @@
             $stateProvider
             .state('Home', {
                 url: "/Home",
-                templateUrl: "/gttriangle.github.io/sources/views/HomeView.html",
+                templateUrl: "/sources/views/HomeView.html",
                 params: {obj: null}
             });
             $urlRouterProvider.otherwise('Home');
