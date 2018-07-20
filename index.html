@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title>Triangle @ GT</title>
-        <!--<link rel="shortcut icon" href="/work-planner/sources/images/logo.png"/>-->
+        <link rel="shortcut icon" href="/sources/images/logo.png"/>
         <!--Library references-->
         <link href="/sources/lib/fullcalendar/fullcalendar.css" rel="stylesheet"/>
         <link href="/sources/css/bootstrap/bootstrap.css" rel="stylesheet" />
@@ -50,11 +50,13 @@
         <!-- App references --->
         <script src="/sources/router.js"></script>
         <script src="/sources/services/authSvc.js"></script>
+        <script src="/sources/directives/header.js"></script>
         <script src="/sources/controllers/HomeCtrl.js"></script>
 
 
     </head>
     <body ng-app="gt-tri">
+        <header></header>
         <ui-view></ui-view>
     </body>
 
