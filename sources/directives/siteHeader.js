@@ -6,7 +6,7 @@ angular.module('gt-tri').directive('siteHeader', function () {
                 $scope.permission = $scope.loggedInUser.permission;
                 $scope.loggedIn = authSvc.loggedIn;
                 $scope.login = function () {
-                    loginModalSvc.showModal();
+                    loginModalSvc.show();
                 }
                 $scope.logout = function () {
                     authSvc.logoutUser();
