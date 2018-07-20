@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('gt-tri').service('loginModalSvc', ['authSvc', '$modal', loginModalSvc]);
-    function (authSvc, $modal) {
+    function loginModalSvc(authSvc, $modal) {
         var modalDefaults = {
             backdrop: 'static',
             keyboard: false,
