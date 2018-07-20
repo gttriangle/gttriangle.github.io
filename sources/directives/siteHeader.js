@@ -1,12 +1,12 @@
 angular.module('gt-tri').directive('siteHeader', function () {
         return {
             restrict: "E",
-            controller: ['$scope', '$state', 'authSvc', function($scope, $state, authSvc) {
+            controller: ['$scope', '$state', 'authSvc', 'loginModalSvc', function($scope, $state, authSvc, loginModalSvc) {
                 $scope.loggedInUser = authSvc.loggedInUser;
                 $scope.permission = $scope.loggedInUser.permission;
                 $scope.loggedIn = authSvc.loggedIn;
                 $scope.login = function () {
-                    loginModalSvc.showModal({type: 'login'});
+                    loginModalSvc.showModal();
                 }
                 $scope.logout = function () {
                     authSvc.logoutUser();
