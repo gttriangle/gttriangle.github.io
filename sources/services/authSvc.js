@@ -61,6 +61,7 @@
         return {
             loggedIn: loggedIn,
             loginUser: loginUser,
+            loggedInUser: loggedInUser,
             createUser: createUser,
         }
     }
