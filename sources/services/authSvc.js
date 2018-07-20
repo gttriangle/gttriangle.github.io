@@ -62,7 +62,6 @@
             loggedIn: loggedIn,
             loginUser: loginUser,
             createUser: createUser,
-            permission: permission
         }
     }
 })();
