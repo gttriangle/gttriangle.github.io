@@ -3,7 +3,7 @@
     angular.module('gt-tri').factory('authSvc', ['$q', 'firebase', '$firebaseObject', '$firebaseArray', '$scope', authSvc]);
     function authSvc($q, firebase, $firebaseObject, $firebaseArray, $scope) {
         var loggedInUser = {
-            email: null;
+            email: null,
             name: null,
             permission: 'unregistered'
         }
