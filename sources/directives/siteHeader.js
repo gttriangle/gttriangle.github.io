@@ -1,4 +1,4 @@
-angular.module('gt-tri').directive('header', function () {
+angular.module('gt-tri').directive('siteHeader', function () {
         return {
             restrict: "E",
             controller: ['$scope', '$state', 'authSvc', function($scope, $state, authSvc) {
@@ -109,10 +109,10 @@ angular.module('gt-tri').directive('header', function () {
                     </ul>
                 </div>
                 <div class="nav navbar-nav navbar-right">
-                    <button class="button" ng-show="!loggedIn" ng-click="login()">Login</button>
+                    <button class="btn btn-primary" ng-show="!loggedIn" ng-click="login()">Login</button>
                     <div class="text-right" ng-show="loggedIn">
                         Welcome {{loggedInUser.name}}
-                        <button class="button" ng-click="logout()">Logout</button>
+                        <button class="btn btn-primary" ng-click="logout()">Logout</button>
                     </div>
                 </div>
             </div>

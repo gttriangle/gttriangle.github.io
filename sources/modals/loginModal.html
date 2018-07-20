@@ -1,0 +1,33 @@
+<div class="modal-container">
+    <header class="text-center">
+        Login
+    </header>
+
+    <div class="modal-body">
+        <div ng-show="type === 'login'">
+            Email: <br />
+            <input type="email" ng-model="email" placeholder="something@email.com" />
+            Password: <br />
+            <input type="password" ng-model="password" placeholder="" /><br />
+            <button class="btn btn-primary" ng-click="login()"></button>
+            <button class="btn btn-primary" ng-click="cancel()"></button><br />
+            <div ng-click="type='create'">
+                Create new Account
+            </div>
+        </div>
+        <div ng-show="type === 'create'">
+            Name:<br />
+            <input type="text" ng-model="email" placeholder="Your Name" />
+            Email:<br />
+            <input type="email" ng-model="email" placeholder="something@email.com" />
+            Password:<br />
+            <input type="password" ng-model="password" placeholder="" /><br />
+            <button class="btn btn-primary" ng-click="createAccount()"></button>
+            <button class="btn btn-primary" ng-click="cancel()"></button><br />
+        </div>
+    </div>
+
+    <footer class="modal-footer">
+
+    </footer>
+</div>
