@@ -1,7 +1,7 @@
 angular.module('gt-tri').directive('siteHeader', function () {
         return {
             restrict: "E",
-            controller: ['$scope', '$state', 'authSvc', 'loginModalSvc', function($scope, $state, authSvc, loginModalSvc) {
+            controller: ['$scope', '$state', '$window', 'authSvc', 'loginModalSvc', function($scope, $state, $window, authSvc, loginModalSvc) {
                 $scope.loggedInUser = authSvc.loggedInUser;
                 $scope.permission = $scope.loggedInUser.permission;
                 $scope.loggedIn = authSvc.loggedIn;
@@ -13,11 +13,11 @@ angular.module('gt-tri').directive('siteHeader', function () {
                 }
 
                 $scope.goToHome = function () {
-                    window.location = '#/index.html';
+                    $window.location.href = '#/index.html';
                 };
 
                 $scope.goToCalendar = function () {
-
+                    $window.location.href = 'https://calendar.google.com/calendar/embed?src=a54sq5vc8bjnlkpi38oquunbfg%40group.calendar.google.com&ctz=America%2FNew_York';
                 };
 
                 $scope.goToEventDiagnostics = function () {
