@@ -13,11 +13,11 @@ angular.module('gt-tri').directive('siteHeader', function () {
                 }
 
                 $scope.goToHome = function () {
-                    $window.location.href = '#/index.html';
+                    window.location = '#/index.html';
                 };
 
                 $scope.goToCalendar = function () {
-                    $window.location.href = 'https://calendar.google.com/calendar/embed?src=a54sq5vc8bjnlkpi38oquunbfg%40group.calendar.google.com&ctz=America%2FNew_York';
+                    
                 };
 
                 $scope.goToEventDiagnostics = function () {
