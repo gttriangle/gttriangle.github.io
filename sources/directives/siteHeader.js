@@ -13,7 +13,7 @@ angular.module('gt-tri').directive('siteHeader', function () {
                 }
 
                 $scope.goToHome = function () {
-
+                    window.location = '#/index.html';
                 };
 
                 $scope.goToCalendar = function () {
