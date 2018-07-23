@@ -1,0 +1,45 @@
+{
+  "name": "gttriangle.github.io",
+  "version": "1.0.0",
+  "description": "GT Triangle in-house website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gttriangle/gttriangle.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gttriangle/gttriangle.github.io/issues"
+  },
+  "homepage": "https://github.com/gttriangle/gttriangle.github.io#readme",
+  "dependencies": {
+    "angular": "^1.7.2",
+    "angular-animate": "^1.7.2",
+    "angular-clipboard": "^1.6.2",
+    "angular-css": "^1.0.8",
+    "angular-drag-and-drop-lists": "^2.1.0",
+    "angular-local-storage": "^0.7.1",
+    "angular-sanitize": "^1.7.2",
+    "angular-spinner": "^1.0.1",
+    "angular-ui-bootstrap": "^2.5.6",
+    "angular-ui-calendar": "^1.0.2",
+    "angular-ui-router": "^1.0.19",
+    "angular-utils-pagination": "^0.11.1",
+    "angularfire": "^2.3.0",
+    "bootstrap": "^4.1.2",
+    "bootstrap-tabcollapse": "^0.2.6",
+    "font-awesome": "^4.7.0",
+    "fullcalendar": "^3.9.0",
+    "jquery": "^3.3.1",
+    "moment": "^2.22.2",
+    "moment-precise-range": "^0.2.0",
+    "ng-showdown": "^1.1.0",
+    "popper.js": "^1.14.3",
+    "showdown": "^1.8.6",
+    "toastr": "^2.1.4"
+  }
+}
