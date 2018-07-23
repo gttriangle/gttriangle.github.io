@@ -2,25 +2,26 @@
     <div class="error-container">
         <strong ng-repeat="err in vm.errors">{{err}}</strong>
     </div>
-    <div ng-show="type === 'login'" class="col-md-6">
-        Email: <br />
-        <input type="email" ng-model="email" placeholder="something@email.com" /><br />
-        Password: <br />
-        <input type="password" ng-model="password" placeholder="Password" /><br />
-        <button class="btn btn-primary" ng-click="vm.login()">Login</button>
-        <button class="btn btn-primary" ng-click="vm.cancel()">Cancel</button><br />
-    </div>
-    <div ng-show="type === 'create'" class="col-md-6">
-        <div ng-click="type='create'">
-            Create new Account
-        </div><br />
-        Name:<br />
-        <input type="text" ng-model="name" placeholder="Your Name" /><br />
-        Email:<br />
-        <input type="email" ng-model="email" placeholder="something@email.com" /><br />
-        Password:<br />
-        <input type="password" ng-model="password" placeholder="Password" /><br />
-        <button class="btn btn-primary" ng-click="vm.register()">Register</button>
-        <button class="btn btn-primary" ng-click="type='login'">Cancel</button><br />
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Login</h1>
+            Email: <br />
+            <input type="email" ng-model="loginCreds.email" placeholder="something@email.com" /><br />
+            Password: <br />
+            <input type="password" ng-model="loginCreds.password" placeholder="Password" /><br />
+            <button class="btn btn-primary" ng-click="vm.login()">Login</button>
+            <button class="btn btn-primary" ng-click="vm.cancel()">Cancel</button><br />
+        </div>
+        <div class="col-md-6">
+            <h1>Create Account</h1>
+            Name:<br />
+            <input type="text" ng-model="registerCreds.name" placeholder="Your Name" /><br />
+            Email:<br />
+            <input type="email" ng-model="registerCreds.email" placeholder="something@email.com" /><br />
+            Password:<br />
+            <input type="password" ng-model="registerCreds.password" placeholder="Password" /><br />
+            <button class="btn btn-primary" ng-click="vm.register()">Register</button>
+            <button class="btn btn-primary" ng-click="vm.cancel()">Cancel</button><br />
+        </div>
     </div>
 </div>

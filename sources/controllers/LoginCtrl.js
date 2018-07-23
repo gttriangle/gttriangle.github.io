@@ -6,23 +6,32 @@
         var vm = $scope.vm || {};
         $scope.vm = vm;
         vm.errors = [];
-        $scope.type = 'login';
-        $scope.email = null;
-        $scope.password = null;
-        $scope.name = null;
+
+        $scope.loginCreds = {
+            email: null,
+            password: null
+        };
+
+        $scope.registerCreds = {
+            email: null,
+            password: null,
+            name: null
+        };
 
         vm.login = function() {
-            authSvc.loginUser($scope.email, $scope.password).then(function () {
-                toaster.pop('success', null, 'Logged In!');
-                $state.go('Home');
-            }, function (error) {
-                vm.errors.push(error);
-                toaster.pop('failure', null, 'Login Unsuccessful!');
-            });
+            if (!!$scope.loginCreds.email && !!$scope.loginCreds.password) {
+                authSvc.loginUser($scope.email, $scope.password).then(function () {
+                    toaster.pop('success', null, 'Logged In!');
+                    $state.go('Home');
+                }, function (error) {
+                    vm.errors.push(error);
+                    toaster.pop('failure', null, 'Login Unsuccessful!');
+                });
+            }
         }
 
         vm.register = function() {
-            if (!!$scope.name && !!$scope.email && !!$scope.password) {
+            if (!!$scope.registerCreds.name && !!$scope.registerCreds.email && !!$scope.registerCreds.password) {
                 authSvc.createUser($scope.name, $scope.email, $scope.password).then(function () {
                     toaster.pop('success', null, 'User registered!');
                     $state.go('Home')
@@ -33,9 +42,16 @@
         }
 
         vm.cancel = function() {
-            $scope.email = null;
-            $scope.name = null;
-            $scope.password = null;
+            $scope.loginCreds = {
+                email: null,
+                password: null
+            };
+
+            $scope.registerCreds = {
+                email: null,
+                password: null,
+                name: null
+            };
         }
     };
 })();

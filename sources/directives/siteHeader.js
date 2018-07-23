@@ -5,6 +5,9 @@ angular.module('gt-tri').directive('siteHeader', function () {
                 $scope.loggedInUser = authSvc.loggedInUser;
                 $scope.permission = $scope.loggedInUser.permission;
                 $scope.loggedIn = authSvc.loggedIn;
+                $scope.$watch('authSvc.loggedIn', function (newValue) {
+                    $scope.loggedIn = newValue;
+                })
                 $scope.login = function () {
                     $state.go('Login');
                 }

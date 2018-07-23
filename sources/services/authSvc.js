@@ -1,13 +1,8 @@
 (function () {
     'use strict';
-    angular.module('gt-tri').factory('authSvc', ['$q', 'firebase', '$firebaseObject', '$firebaseArray', authSvc]);
-    function authSvc($q, firebase, $firebaseObject, $firebaseArray) {
-        var loggedInUser = {
-            email: null,
-            name: null,
-            permission: 'unregistered'
-        }
-        var loggedIn = false;
+    angular.module('gt-tri').factory('authSvc', ['$q', 'firebase', '$firebaseObject', '$firebaseArray', '$rootScope', authSvc]);
+    function authSvc($q, firebase, $firebaseObject, $firebaseArray, $rootScope) {
+
         var allUsers;
         var promise = $firebaseObject(firebase.database().ref().child('Users')).$loaded();
         promise.then(function (result) {
@@ -24,6 +19,8 @@
                     return error.message
             }
         }
+
+
 
         var loginUser = function (email, password) {
             var defer = $q.defer();
@@ -42,13 +39,8 @@
         }
 
         var logoutUser = function() {
-            firebase.auth().signOUt().then(function () {
-                loggedInUser = {
-                    email: null,
-                    name: null,
-                    permission: 'unregistered'
-                }
-                loggedIn = false;
+            firebase.auth().signOut().then(function () {
+                $rootScope.$broadcast('loginChange', false, { })
             });
         }
 
@@ -75,11 +67,20 @@
             return defer.promise;
         }
 
+        var loggedInUser = function () {
+            return allUsers[firebase.auth().currentUser.uid];
+        }
+
+        var loggedIn = function () {
+            return !!firbase.auth().currentUser;
+        }
+
         return {
             loggedIn: loggedIn,
             loginUser: loginUser,
+            logoutUser: logoutUser,
             loggedInUser: loggedInUser,
-            createUser: createUser,
+            createUser: createUser
         }
     }
 })();
