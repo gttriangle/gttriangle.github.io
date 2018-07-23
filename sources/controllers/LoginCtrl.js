@@ -41,17 +41,19 @@
             }
         }
 
-        vm.cancel = function() {
-            $scope.loginCreds = {
-                email: null,
-                password: null
-            };
-
-            $scope.registerCreds = {
-                email: null,
-                password: null,
-                name: null
-            };
+        vm.cancel = function(form) {
+            if (form === 'login') {
+                $scope.loginCreds = {
+                    email: null,
+                    password: null
+                };
+            } else if (form === 'register') {
+                $scope.registerCreds = {
+                    email: null,
+                    password: null,
+                    name: null
+                };
+            }
         }
     };
 })();
