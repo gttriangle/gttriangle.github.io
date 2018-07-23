@@ -6,11 +6,16 @@
         .value('baseUrl', baseUrl)
         .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
             $stateProvider
+            .state('Login', {
+                url: "Home",
+                templateUrl: "/sources/view/LoginView.html",
+                params: {obj: null}
+            })
             .state('Home', {
                 url: "/Home",
                 templateUrl: "/sources/views/HomeView.html",
                 params: {obj: null}
             });
-            $urlRouterProvider.otherwise('Home');
+            $urlRouterProvider.otherwise('Login');
         }]);
 })(window);
