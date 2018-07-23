@@ -1,7 +1,7 @@
 (function () {
     'use strict';
-    angular.module('gt-tri').service('loginModalSvc', ['authSvc', '$modal', loginModalSvc]);
-    function loginModalSvc(authSvc, $modal) {
+    angular.module('gt-tri').service('loginModalSvc', ['authSvc', '$uibModal', loginModalSvc]);
+    function loginModalSvc(authSvc, $uibModal) {
         var modalDefaults = {
             backdrop: 'static',
             keyboard: false,
@@ -16,11 +16,11 @@
                 tempModalDefaults.controller = thisCtrl;
             }
 
-            tempModalDefaults.controller.$inject = ['$scope', '$modalInstance'];
-            return $modal.open(tempModalDefaults).result;
+            tempModalDefaults.controller.$inject = ['$scope', '$uibModalInstance'];
+            return $uibModal.open(tempModalDefaults).result;
         }
 
-        function thisCtrl($scope, $modalInstance) {
+        function thisCtrl($scope, $uibModalInstance) {
 
         }
     }

@@ -2,8 +2,7 @@
     'use strict';
     var baseUrl = 'https://gttriangle.github.io/';
 
-    angular
-        .module('gt-tri', ['ui.router', 'ui.bootstrap', 'ui.calendar', 'ngAnimate', 'toaster', 'ngSanitize', 'LocalStorageModule', 'angularUtils.directives.dirPagination', 'angular-clipboard', 'angularCSS', 'ng-showdown', 'dndLists', 'firebase'])
+    angular.module('gt-tri')
         .value('baseUrl', baseUrl)
         .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
             $stateProvider
