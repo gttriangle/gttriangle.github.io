@@ -46,62 +46,24 @@
         <script src="/node_modules/bootstrap-tabcollapse/bootstrap-tabcollapse.js"></script>
         <link href="/node_modules/font-awesome/css/font-awesome.css" rel="stylesheet" />
         <script src="/node_modules/toastr/toaster.js"></script>
-
-        <!--<link href="/sources/lib/fullcalendar/fullcalendar.css" rel="stylesheet"/>
-        <link href="/sources/css/bootstrap/bootstrap.css" rel="stylesheet" />
-        <link href="/sources/css/toaster.css" rel="stylesheet" />
-        <link href="/sources/css/font-awesome.min.css" rel="stylesheet" />
-        <link href="/sources/css/site.css" rel="stylesheet" />
-        <script src="/sources/lib/moment.js"></script>
-        <script src="/sources/lib/moment-precise-range.js"></script>
-        <script src="/sources/lib/jquery/jquery-2.1.4.js"></script>
-        <script src="/sources/lib/popper.js"></script>
-        <script src="/sources/lib/bootstrap/bootstrap.js"></script>
-        <script src="/sources/lib/bootstrap/bootstrap-tabcollapse.js"></script>
-        <script src="/sources/lib/angular/angular.js"></script>
-        <script src="/sources/lib/angular/angular-ui-router.js"></script>
-        <script src="/sources/lib/angular/angular-animate.js"></script>
-        <script src="/sources/lib/angular/angular-local-storage.js"></script>
-        <script src="/sources/lib/angular/ui-bootstrap-tpls.js"></script>
-        <script src="/sources/lib/angular/spin.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-        <script src="/sources/lib/angular/angularfire.js"></script>
-        <script>
-          // Initialize Firebase
-          var config = {
-            apiKey: "AIzaSyD3er-s11xuNNOGi8-a8sHTw2IvReBYNko",
-            authDomain: "gttriangle-6939f.firebaseapp.com",
-            databaseURL: "https://gttriangle-6939f.firebaseio.com",
-            projectId: "gttriangle-6939f",
-            storageBucket: "",
-            messagingSenderId: "765491538543"
-          };
-          firebase.initializeApp(config);
-        </script>
-        <script src="/sources/lib/angular/angular-sanitize.js"></script>
-        <script src="/sources/lib/angular-css.min.js"></script>
-        <script src="/sources/lib/fullcalendar/calendar.js"></script>
-        <script src="/sources/lib/fullcalendar/fullcalendar.js"></script>
-        <script src="/sources/lib/angular/angular-clipboard.js"></script>
-        <script src="/sources/lib/angular-drag-and-drop-lists.js"></script>
-        <script src="/sources/lib/showdown.js"></script>
-        <script src="/sources/lib/ngShowdown.js"></script>
-        <script src="/sources/lib/toaster.js"></script>
-        <script src="/sources/lib/dirPagination.js"></script>-->
+        <link rel="stylesheet" href="/node_modules/toastr/build/toastr.css" />
 
         <!-- App references --->
         <link href="/sources/css/site.css" rel="stylesheet" />
         <script src="/sources/config.js"></script>
         <script src="/sources/router.js"></script>
         <script src="/sources/services/authSvc.js"></script>
+        <script src="/sources/controllers/LoginCtrl.js"></script>
         <script src="/sources/directives/siteHeader.js"></script>
         <script src="/sources/controllers/HomeCtrl.js"></script>
-        <script src="/sources/modals/loginModalSvc.js"></script>
 
 
     </head>
     <body ng-app="gt-tri">
         <site-header></site-header>
+        <div toaster-container
+            toaster-options="{'time-out': 1800, 'position-class': 'toast-bottom-right', 'close-button': false}">
+        </div>
         <ui-view></ui-view>
     </body>
 

@@ -7,8 +7,8 @@
         .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
             $stateProvider
             .state('Login', {
-                url: "Home",
-                templateUrl: "/sources/view/LoginView.html",
+                url: "/Login",
+                templateUrl: "/sources/views/LoginView.html",
                 params: {obj: null}
             })
             .state('Home', {

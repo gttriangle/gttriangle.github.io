@@ -1,23 +1,26 @@
-<div class="container">
-    <div ng-show="type === 'login'">
+<div class="container" ng-controller="LoginCtrl">
+    <div class="error-container">
+        <strong ng-repeat="err in vm.errors">{{err}}</strong>
+    </div>
+    <div ng-show="type === 'login'" class="col-md-6">
         Email: <br />
-        <input type="email" ng-model="email" placeholder="something@email.com" />
+        <input type="email" ng-model="email" placeholder="something@email.com" /><br />
         Password: <br />
-        <input type="password" ng-model="password" placeholder="" /><br />
-        <button class="btn btn-primary" ng-click="login()"></button>
-        <button class="btn btn-primary" ng-click="cancel()"></button><br />
+        <input type="password" ng-model="password" placeholder="Password" /><br />
+        <button class="btn btn-primary" ng-click="vm.login()">Login</button>
+        <button class="btn btn-primary" ng-click="vm.cancel()">Cancel</button><br />
+    </div>
+    <div ng-show="type === 'create'" class="col-md-6">
         <div ng-click="type='create'">
             Create new Account
-        </div>
-    </div>
-    <div ng-show="type === 'create'">
+        </div><br />
         Name:<br />
-        <input type="text" ng-model="email" placeholder="Your Name" />
+        <input type="text" ng-model="name" placeholder="Your Name" /><br />
         Email:<br />
-        <input type="email" ng-model="email" placeholder="something@email.com" />
+        <input type="email" ng-model="email" placeholder="something@email.com" /><br />
         Password:<br />
-        <input type="password" ng-model="password" placeholder="" /><br />
-        <button class="btn btn-primary" ng-click="createAccount()"></button>
-        <button class="btn btn-primary" ng-click="cancel()"></button><br />
+        <input type="password" ng-model="password" placeholder="Password" /><br />
+        <button class="btn btn-primary" ng-click="vm.register()">Register</button>
+        <button class="btn btn-primary" ng-click="type='login'">Cancel</button><br />
     </div>
 </div>
