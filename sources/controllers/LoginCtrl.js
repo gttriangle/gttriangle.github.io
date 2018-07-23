@@ -20,7 +20,7 @@
 
         vm.login = function() {
             if (!!$scope.loginCreds.email && !!$scope.loginCreds.password) {
-                authSvc.loginUser($scope.email, $scope.password).then(function () {
+                authSvc.loginUser($scope.loginCreds.email, $scope.loginCreds.password).then(function () {
                     toaster.pop('success', null, 'Logged In!');
                     $state.go('Home');
                 }, function (error) {
@@ -32,7 +32,7 @@
 
         vm.register = function() {
             if (!!$scope.registerCreds.name && !!$scope.registerCreds.email && !!$scope.registerCreds.password) {
-                authSvc.createUser($scope.name, $scope.email, $scope.password).then(function () {
+                authSvc.createUser($scope.registerCreds.name, $scope.registerCreds.email, $scope.registerCreds.password).then(function () {
                     toaster.pop('success', null, 'User registered!');
                     $state.go('Home')
                 }, function (error) {
