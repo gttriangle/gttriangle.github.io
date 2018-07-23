@@ -1,7 +1,7 @@
 angular.module('gt-tri').directive('siteHeader', function () {
         return {
             restrict: "E",
-            controller: ['$scope', '$state', '$window', 'authSvc', 'loginModalSvc', function($scope, $state, $window, authSvc, loginModalSvc) {
+            controller: ['$scope', '$state', 'authSvc', 'loginModalSvc', function($scope, $state, authSvc, loginModalSvc) {
                 $scope.loggedInUser = authSvc.loggedInUser;
                 $scope.permission = $scope.loggedInUser.permission;
                 $scope.loggedIn = authSvc.loggedIn;
@@ -13,11 +13,11 @@ angular.module('gt-tri').directive('siteHeader', function () {
                 }
 
                 $scope.goToHome = function () {
-                    window.location = '#/index.html';
+                    $state.go('Home');
                 };
 
                 $scope.goToCalendar = function () {
-                    
+
                 };
 
                 $scope.goToEventDiagnostics = function () {
