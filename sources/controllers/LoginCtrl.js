@@ -7,17 +7,6 @@
         $scope.vm = vm;
         vm.errors = [];
 
-        $scope.loginCreds = {
-            email: null,
-            password: null
-        };
-
-        $scope.registerCreds = {
-            email: null,
-            password: null,
-            name: null
-        };
-
         vm.login = function() {
             if (!!$scope.loginCreds.email && !!$scope.loginCreds.password) {
                 authSvc.loginUser($scope.loginCreds.email, $scope.loginCreds.password).then(function () {
@@ -43,16 +32,9 @@
 
         vm.cancel = function(form) {
             if (form === 'login') {
-                $scope.loginCreds = {
-                    email: null,
-                    password: null
-                };
+                $scope.loginCreds = {};
             } else if (form === 'register') {
-                $scope.registerCreds = {
-                    email: null,
-                    password: null,
-                    name: null
-                };
+                $scope.registerCreds = {};
             }
         }
     };
