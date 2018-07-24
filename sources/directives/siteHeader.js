@@ -2,12 +2,19 @@ angular.module('gt-tri').directive('siteHeader', function () {
         return {
             restrict: "E",
             controller: ['$scope', '$state', 'authSvc', function($scope, $state, authSvc) {
-                $scope.loggedInUser = authSvc.loggedInUser;
+                $scope.loggedIn = authSvc.loggedIn();
+                $scope.loggedInUser = ($scope.loggedIn) ? authSvc.loggedInUser() : {permission: 'unregistered'};
                 $scope.permission = $scope.loggedInUser.permission;
-                $scope.loggedIn = authSvc.loggedIn;
-                $scope.$watch('authSvc.loggedIn', function (newValue) {
-                    $scope.loggedIn = newValue;
-                })
+                $scope.$on('loginChange', function(event, loggedIn, user) {
+                    $scope.loggedIn = loggedIn;
+                    if (!loggedIn) {
+                        $scope.permission = 'unregistered';
+                    } else {
+                        $scope.loggedInUser = user;
+                        $scope.permission = user.permission;
+                    }
+                    return;
+                });
                 $scope.login = function () {
                     $state.go('Login');
                 }

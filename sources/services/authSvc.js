@@ -26,10 +26,7 @@
             var defer = $q.defer();
             try {
                 firebase.auth().signInWithEmailAndPassword(email, password).then(function (result) {
-                    loggedInUser.email = allUsers[result.user.uid].email;
-                    loggedInUser.name = allUsers[result.user.uid].name;
-                    loggedInUser.permission = allUsers[result.user.uid].permission;
-                    loggedIn = true;
+                    $rootScope.$broadcast('loginChange', true, allUsers[result.user.uid]);
                     defer.resolve();
                 })
             } catch (e) {
@@ -40,7 +37,7 @@
 
         var logoutUser = function() {
             firebase.auth().signOut().then(function () {
-                $rootScope.$broadcast('loginChange', false, { })
+                $rootScope.$broadcast('loginChange', false)
             });
         }
 
@@ -72,7 +69,7 @@
         }
 
         var loggedIn = function () {
-            return !!firbase.auth().currentUser;
+            return !!firebase.auth().currentUser;
         }
 
         return {
