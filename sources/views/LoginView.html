@@ -3,80 +3,86 @@
         <div ng-repeat="err in vm.errors">{{err}}</div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <h1>Login</h1>
-            <form class="form-horizontal" name="loginForm" novalidate>
-                <div class="form-group">
-                    <div class="col-md-2">
-                        <label>Email</label>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="email" name="email" class="form-control" ng-model="loginCreds.email" required />
-                        <div class="alert alert-danger" ng-show="(loginForm.email.$touched || loginForm.$submitted) && loginForm.email.$error.required">
-                            Email is required
+        <div class="col-md-6 row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h1>Login</h1>
+                <form class="form-horizontal" name="loginForm" novalidate>
+                    <div class="form-group">
+                        <div>
+                            <label>Email</label>
+                        </div>
+                        <div>
+                            <input type="email" name="email" class="form-control" ng-model="loginCreds.email" required />
+                            <div class="alert alert-danger" ng-show="(loginForm.email.$touched || loginForm.$submitted) && loginForm.email.$error.required">
+                                Email is required
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-2">
-                        <label>Password</label>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="password" name="password" class="form-control" ng-model="loginCreds.password" required />
-                        <div class="alert alert-danger" ng-show="(loginForm.password.$touched || loginForm.$submitted) && loginForm.password.$error.required">
-                            Password is required
+                    <div class="form-group">
+                        <div>
+                            <label>Password</label>
+                        </div>
+                        <div>
+                            <input type="password" name="password" class="form-control" ng-model="loginCreds.password" required />
+                            <div class="alert alert-danger" ng-show="(loginForm.password.$touched || loginForm.$submitted) && loginForm.password.$error.required">
+                                Password is required
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Login" class="btn btn-primary" ng-click="vm.login()" ng-disabled="loginForm.$invalid"/>
+                    <div class="form-group">
+                        <div>
+                            <input type="submit" value="Login" class="btn btn-primary" ng-click="vm.login()" ng-disabled="loginForm.$invalid"/>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-        <div class="col-md-6">
-            <h1>Create Account</h1>
-            <form class="form-horizontal" name="registerForm">
-                <div class="form-group">
-                    <div class="col-md-2">
-                        <label>Name</label>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" name="username" class="form-control" ng-model="registerCreds.name" placeholder="Your name" required />
-                        <div class="alert alert-danger" ng-show="(registerForm.username.$touched || registerForm.$submitted) && registerForm.username.$error.required">
-                            Name is required
+        <div class="col-md-6 row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h1>Create Account</h1>
+                <form class="form-horizontal" name="registerForm">
+                    <div class="form-group">
+                        <div>
+                            <label>Name</label>
+                        </div>
+                        <div>
+                            <input type="text" name="username" class="form-control" ng-model="registerCreds.name" placeholder="Your name" required />
+                            <div class="alert alert-danger" ng-show="(registerForm.username.$touched || registerForm.$submitted) && registerForm.username.$error.required">
+                                Name is required
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-2">
-                        <label>Email</label>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="email" name="email" class="form-control" ng-model="registerCreds.email" placeholder="you@example.com" required />
-                        <div class="alert alert-danger" ng-show="(registerForm.email.$touched || registerForm.$submitted) && registerForm.email.$error.required">
-                            Email is required
+                    <div class="form-group">
+                        <div>
+                            <label>Email</label>
+                        </div>
+                        <div>
+                            <input type="email" name="email" class="form-control" ng-model="registerCreds.email" placeholder="you@example.com" required />
+                            <div class="alert alert-danger" ng-show="(registerForm.email.$touched || registerForm.$submitted) && registerForm.email.$error.required">
+                                Email is required
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-2">
-                        <label>Password</label>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="password" name="password" class="form-control" ng-model="registerCreds.password" placeholder="At least 6 characters" required />
-                        <div class="alert alert-danger" ng-show="(registerForm.password.$touched || registerForm.$submitted) && registerForm.password.$error.required">
-                            Password is required
+                    <div class="form-group">
+                        <div>
+                            <label>Password</label>
+                        </div>
+                        <div>
+                            <input type="password" name="password" class="form-control" ng-model="registerCreds.password" placeholder="At least 6 characters" required />
+                            <div class="alert alert-danger" ng-show="(registerForm.password.$touched || registerForm.$submitted) && registerForm.password.$error.required">
+                                Password is required
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Register" class="btn btn-primary" ng-click="vm.register()" ng-disabled="registerForm.$invalid"/>
+                    <div class="form-group">
+                        <div >
+                            <input type="submit" value="Register" class="btn btn-primary" ng-click="vm.register()" ng-disabled="registerForm.$invalid"/>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
             <!-- Name:<br />
             <input type="text" ng-model="registerCreds.name" placeholder="Your Name" /><br />
             Email:<br />
