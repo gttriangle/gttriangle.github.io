@@ -67,7 +67,7 @@ angular.module('gt-tri').directive('siteHeader', function () {
                 <a class="navbar-brand" ng-click="goToHome()">
                     <img src="/sources/images/logo.png" class="rounded navbar-logo"
                         height="37">
-                        Triangle @ GT
+                    <font color="Grey">Triangle @ GT</font>
                 </a>
                 <div class="collapse navbar-collapse" id="mainNavbar">
                     <ul class="nav navbar-nav">
