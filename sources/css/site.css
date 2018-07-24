@@ -1,3 +1,9 @@
 a {
     cursor: pointer;
 }
+
+blockquote {
+    font-family: cursive;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
