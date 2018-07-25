@@ -32,6 +32,7 @@
     "angularfire": "^2.3.0",
     "bootstrap": "^4.1.2",
     "bootstrap-tabcollapse": "^0.2.6",
+    "d3": "^5.5.0",
     "font-awesome": "^4.7.0",
     "fullcalendar": "^3.9.0",
     "jquery": "^3.3.1",
