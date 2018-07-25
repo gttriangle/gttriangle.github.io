@@ -121,7 +121,7 @@ angular.module('gt-tri').directive('siteHeader', function () {
                 <div class="nav navbar-nav navbar-right">
                     <button class="btn btn-primary" ng-show="!loggedIn" ng-click="login()">Login</button>
                     <div class="text-right" ng-show="loggedIn">
-                        Welcome {{loggedInUser.name}}
+                        <font color="Grey">Welcome, {{loggedInUser.name}}</font>
                         <button class="btn btn-primary" ng-click="logout()">Logout</button>
                     </div>
                 </div>
