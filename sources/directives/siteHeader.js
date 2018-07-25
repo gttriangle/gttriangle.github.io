@@ -13,6 +13,7 @@ angular.module('gt-tri').directive('siteHeader', function () {
                         $scope.loggedInUser = user;
                         $scope.permission = user.permission;
                     }
+                    $scope.$apply();
                     return;
                 });
                 $scope.login = function () {
@@ -27,39 +28,35 @@ angular.module('gt-tri').directive('siteHeader', function () {
                 };
 
                 $scope.goToCalendar = function () {
-
+                    $state.go('Calendar');
                 };
 
                 $scope.goToEventDiagnostics = function () {
-
+                    $state.go('EventDiagnostics');
                 };
 
                 $scope.goToEventPolicies = function () {
-
-                };
-
-                $scope.goToEventPractices = function () {
-
+                    $state.go('EventPolicies');
                 };
 
                 $scope.goToMyAccount = function () {
-
+                    $state.go('Account');
                 };
 
                 $scope.goToBudget  = function () {
-
+                    $state.go('Budget');
                 };
 
                 $scope.goToTransactions = function () {
-
+                    $state.go('Transactions');
                 };
 
                 $scope.goToFinancialStatus = function () {
-
+                    $state.go('FinancialStatus');
                 };
 
                 $scope.goToFamilyTrees = function () {
-
+                    $state.go('FamilyTrees', {person: $scope.loggedInUser.name});
                 };
             }],
             template: `<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
