@@ -68,12 +68,18 @@
 
 
     </head>
-    <body ng-app="gt-tri">
+    <body ng-app="gt-tri" class="full-screen">
         <site-header></site-header>
         <div toaster-container
             toaster-options="{'time-out': 1800, 'position-class': 'toast-bottom-right', 'close-button': false}">
         </div>
-        <ui-view></ui-view>
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10 main-page">
+                <ui-view></ui-view>
+            </div>
+        </div>
     </body>
 
 </html>

@@ -58,12 +58,21 @@
             return !!firebase.auth().currentUser;
         }
 
+        var permisison = function () {
+            try {
+                return allUsers[firebase.auth().currentUser.uid].permission;
+            } catch (e) {
+                return 'unregistered';
+            }
+        }
+
         return {
             loggedIn: loggedIn,
             loginUser: loginUser,
             logoutUser: logoutUser,
             loggedInUser: loggedInUser,
-            createUser: createUser
+            createUser: createUser,
+            permission: permisison
         }
     }
 })();

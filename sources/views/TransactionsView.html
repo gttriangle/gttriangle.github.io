@@ -1,3 +1,20 @@
 <div ng-controller="TransactionsCtrl">
-    Transactions
+    <table class="table-responsive table-hover">
+        <thead>
+            <th ng-click="sortByFrom()">From</th>
+            <th ng-click="sortByTo()">To</th>
+            <th ng-click="sortByDate()">Date</th>
+            <th ng-click="sortByAmount()">Amount</th>
+            <th ng-click="sortByMemo()">Memo</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="transaction in vm.transactions">
+                <td>{{transaction.from}}</td>
+                <td>{{transaction.to}}</td>
+                <td>{{transaction.date}}</td>
+                <td>${{transaction.amount}}</td>
+                <td>{{transaction.memo}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
