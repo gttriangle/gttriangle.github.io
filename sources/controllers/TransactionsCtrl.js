@@ -1,8 +1,9 @@
 (function () {
     'use strict';
-    angular.module('gt-tri').controller('TransactionsCtrl', ['$scope', '$state', 'authSvc', 'firebase', '$firebaseArray', TransactionsCtrl]);
-    function TransactionsCtrl($scope, $state, authSvc, firebase, $firebaseArray) {
-        if (['chair', 'officer', 'financial officer', 'admin'].indexOf(authSvc.permission()) == -1) {
+    angular.module('gt-tri').controller('TransactionsCtrl', ['$scope', '$state', 'authSvc', 'firebase', '$firebaseArray', 'TransactionModalSvc', TransactionsCtrl]);
+    function TransactionsCtrl($scope, $state, authSvc, firebase, $firebaseArray, TransactionModalSvc) {
+        $scope.permission = authSvc.permission();
+        if (['chair', 'officer', 'financial officer', 'admin'].indexOf($scope.permission) == -1) {
             $state.go('Home');
         }
         var vm = $scope.vm || {}
@@ -59,8 +60,10 @@
             }
         }
 
-        if (['financial officer', 'admin'].indexOf(authSvc.permission()) != -1) {
-
+        if (['financial officer', 'admin'].indexOf($scope.permission) != -1) {
+            vm.addTransaction = function () {
+                TransactionModalSvc.showModal();
+            }
         }
     }
 })();

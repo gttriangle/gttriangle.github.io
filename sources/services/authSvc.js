@@ -1,7 +1,7 @@
 (function () {
     'use strict';
-    angular.module('gt-tri').factory('authSvc', ['$q', 'firebase', '$firebaseObject', '$firebaseArray', '$rootScope', authSvc]);
-    function authSvc($q, firebase, $firebaseObject, $firebaseArray, $rootScope) {
+    angular.module('gt-tri').factory('authSvc', ['$q', 'firebase', '$firebaseObject', '$firebaseArray', '$rootScope', 'localStorageService', authSvc]);
+    function authSvc($q, firebase, $firebaseObject, $firebaseArray, $rootScope, localStorageService) {
 
         var allUsers;
         var promise = $firebaseObject(firebase.database().ref().child('Users')).$loaded();
@@ -11,19 +11,26 @@
 
         var loginUser = function (email, password) {
             var defer = $q.defer();
-            try {
-                firebase.auth().signInWithEmailAndPassword(email, password).then(function (result) {
-                    $rootScope.$broadcast('loginChange', true, allUsers[result.user.uid]);
-                    defer.resolve();
+            firebase.auth().signInWithEmailAndPassword(email, password).then(function (result) {
+                var now = new Date();
+                $rootScope.$broadcast('loginChange', true, allUsers[result.user.uid]);
+                localStorageService.set('authData', {
+                    email: email,
+                    password: password,
+                    name: allUsers[result.user.uid].name,
+                    permission: allUsers[result.user.uid].permission,
+                    logoutTime: now.setHours(now.getHours() + 2)
                 })
-            } catch (e) {
-                defer.reject(e);
-            }
+                defer.resolve();
+            }, function (e) {
+                defer.reject(e.message);
+            });
             return defer.promise;
         }
 
         var logoutUser = function() {
             firebase.auth().signOut().then(function () {
+                localStorageService.set('authData', null);
                 $rootScope.$broadcast('loginChange', false);
                 $state.go('Login');
             });
@@ -45,25 +52,34 @@
                     });
                 });
             } catch (e) {
-                defer.reject(e);
+                defer.reject(e.message);
             }
             return defer.promise;
         }
 
         var loggedInUser = function () {
-            return allUsers[firebase.auth().currentUser.uid];
+            var authData = localStorageService.get('authData');
+            return {
+                email: authData.email,
+                name: authData.name,
+                permission: authData.permission
+            };
         }
 
         var loggedIn = function () {
-            return !!firebase.auth().currentUser;
+            return !!localStorageService.get('authData');
         }
 
         var permisison = function () {
-            try {
-                return allUsers[firebase.auth().currentUser.uid].permission;
-            } catch (e) {
-                return 'unregistered';
-            }
+            var authData = localStorageService.get('authData');
+            return authData.permission;
+        }
+
+        var authData = localStorageService.get('authData');
+        if (!!authData && (new Date()) < authData.logoutTime) {
+            loginUser(authData.email, authData.password);
+        } else {
+            logoutUser();
         }
 
         return {

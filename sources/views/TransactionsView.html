@@ -1,5 +1,5 @@
 <div ng-controller="TransactionsCtrl">
-    <table class="table-responsive table-hover">
+    <table class="table-responsive table-hover ">
         <thead>
             <th ng-click="sortByFrom()">From</th>
             <th ng-click="sortByTo()">To</th>
@@ -17,4 +17,6 @@
             </tr>
         </tbody>
     </table>
+    <button class="btn btn-primary" ng-show="permission === 'financial officer' || permission === 'admin'"
+        ng-click="vm.addTransaction()">Add Transaction</button>
 </div>
