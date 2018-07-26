@@ -40,6 +40,7 @@
     "ng-showdown": "^1.1.0",
     "popper.js": "^1.14.3",
     "showdown": "^1.8.6",
-    "toastr": "^2.1.4"
+    "toastr": "^2.1.4",
+    "treant-js": "^1.0.1"
   }
 }
