@@ -1,20 +1,22 @@
 <div ng-controller="TransactionsCtrl">
     <table class="table-responsive table-hover ">
         <thead>
-            <th class="width-50">&nbsp;</th>
+            <th class="width-50" ng-show="permission === 'financial officer' || permission === 'admin'">&nbsp;</th>
             <th class="width-100" ng-click="sortByFrom()">From</th>
             <th class="width-100" ng-click="sortByTo()">To</th>
-            <th class="width-100" ng-click="sortByDate()">Date</th>
             <th class="width-100" ng-click="sortByAmount()">Amount</th>
+            <th class="width-100" ng-click="sortByDate()">Date</th>
             <th class="width-200" ng-click="sortByMemo()">Memo</th>
         </thead>
         <tbody>
             <tr ng-repeat="transaction in vm.transactions">
-                <td><i class="fa fa-bars" ng-click="vm.editTransaction(transaction)"></i></td>
+                <td><i class="fa fa-bars"
+                       ng-show="permission === 'financial officer' || permission === 'admin'"
+                       ng-click="vm.editTransaction(transaction.$id)"></i></td>
                 <td>{{transaction.from}}</td>
                 <td>{{transaction.to}}</td>
-                <td>{{transaction.date}}</td>
                 <td>${{transaction.amount}}</td>
+                <td>{{transaction.date}}</td>
                 <td>{{transaction.memo}}</td>
             </tr>
         </tbody>

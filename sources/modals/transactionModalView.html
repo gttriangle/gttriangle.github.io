@@ -1,3 +1,32 @@
 <div class="modal-container">
-    dis a modal
+    <div class="modal-header">
+        <h3>{{vm.type}} Transaction</h3>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    From: <input class="form-control" type="text" ng-model="vm.transaction.from" />
+                </div>
+                <div class="col-md-6">
+                    To: <input class="form-control" type="text" ng-model="vm.transaction.to" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    Amount: <input class="form-control" type="number" ng-model="vm.transaction.amount" />
+                </div>
+                <div class="col-md-6">
+                    Date: <input class="form-control" type="date" ng-model="vm.transaction.date" />
+                </div>
+            </div>
+            <div class="col-md-12" style="padding: 0px">
+                Memo: <input class="form-control" type="text" ng-model="vm.transaction.memo" />
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="vm.complete()">{{(vm.type == 'add') ? 'Add' : 'Save'}}</button>
+        <button class="btn btn-primary" ng-click="vm.cancel()">Cancel</button>
+    </div>
 </div>

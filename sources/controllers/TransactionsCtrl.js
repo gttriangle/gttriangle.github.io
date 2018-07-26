@@ -62,13 +62,19 @@
 
         if (['financial officer', 'admin'].indexOf($scope.permission) != -1) {
             vm.addTransaction = function () {
-                transactionModalSvc.showModal();
+                transactionModalSvc.showModal().then(function (result) {
+                    vm.transactions.$add(result);
+                });
             }
 
-            vm.editTransaction = function (transaction) {
-                transactionModalSvc.showModal(transaction).then(function (result) {
-                    console.log(result);
-                })
+            vm.editTransaction = function (id) {
+                var idx = vm.transactions.$indexFor(id);
+                transactionModalSvc.showModal(vm.transactions[idx]).then(function (result) {
+                    if (!!result) {
+                        vm.transactions[idx] = result;
+                        vm.transactions.$save(idx);
+                    }
+                });
             }
         }
     }

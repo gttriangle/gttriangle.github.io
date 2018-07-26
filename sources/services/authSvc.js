@@ -1,7 +1,7 @@
 (function () {
     'use strict';
-    angular.module('gt-tri').factory('authSvc', ['$q', 'firebase', '$firebaseObject', '$firebaseArray', '$rootScope', 'localStorageService', authSvc]);
-    function authSvc($q, firebase, $firebaseObject, $firebaseArray, $rootScope, localStorageService) {
+    angular.module('gt-tri').factory('authSvc', ['$q', 'firebase', '$firebaseObject', '$firebaseArray', '$rootScope', 'localStorageService', '$state', authSvc]);
+    function authSvc($q, firebase, $firebaseObject, $firebaseArray, $rootScope, localStorageService, $state) {
 
         var allUsers;
         var promise = $firebaseObject(firebase.database().ref().child('Users')).$loaded();
