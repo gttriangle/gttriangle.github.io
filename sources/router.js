@@ -59,6 +59,6 @@
                 templateUrl: "/sources/views/TransactionsView.html",
                 params: {obj: null}
             });
-            $urlRouterProvider.otherwise('Login');
+            $urlRouterProvider.otherwise('Home');
         }]);
 })(window);
