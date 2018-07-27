@@ -19,7 +19,7 @@
             if (vm.sortedBy == 'date') {
                 vm.transactions.reverse();
             } else {
-                vm.transaction.sort(function (a, b) { return a.date > b.date; });
+                vm.transactions.sort(function (a, b) { return a.date > b.date; });
                 vm.sortedBy = 'date';
             }
         }
@@ -46,7 +46,7 @@
             if (vm.sortedBy == 'to') {
                 vm.transactions.reverse()
             } else {
-                vm.transaction.sort(function (a, b) { return a.to > b.to; });
+                vm.transactions.sort(function (a, b) { return a.to > b.to; });
                 vm.sortedBy = 'to';
             }
         }
@@ -55,7 +55,7 @@
             if (vm.sortedBy == 'amount') {
                 vm.transactions.reverse()
             } else {
-                vm.transaction.sort(function (a, b) { return a.amount > b.amount; });
+                vm.transactions.sort(function (a, b) { return a.amount > b.amount; });
                 vm.sortedBy = 'amount';
             }
         }
