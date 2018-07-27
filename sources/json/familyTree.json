@@ -1,0 +1,205 @@
+{
+    "chart" : {
+        "animateOnInit" : true,
+        "animation" : {
+            "connectorsAnimation" : "bounce",
+            "connectorsSpeed" : 700,
+            "nodeAnimation" : "easeOutBounce",
+            "nodeSpeed" : 700
+        },
+        "container" : "#family-tree",
+        "node" : {
+            "collapsable" : true
+        }
+    },
+    "nodeStructure" : {
+        "text" : {"name" : "Hursh Sureka"},
+        "children" : [
+            {
+                "text" : {"name" : "Elliott Childre"},
+                "collapsed" : true,
+                "children" : [
+                    {
+                        "text" : {"name" : "Dustin Sloan"},
+                        "childrenDropLevel" : 2,
+                        "collapsed" : true,
+                        "children" : [
+                            {
+                                "text" : {"name" : "Triton Wolfe"},
+                                "collapsed" : true,
+                                "children" : [
+                                    {
+                                        "text" : {"name" : "Diego Heinrich"}
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "text" : {"name" : "Mark Corrin"}
+            },
+            {
+                "text" : {"name" : "Chase Dyer"},
+                "childrenDropLevel" : 3,
+                "collapsed" : true,
+                "children" : [
+                    {
+                        "text" : {"name" : "Kavir Jaggernauth"},
+                        "collapsed" : true,
+                        "children" : [
+                            {
+                                "text" : {"name" : "Zachary Byrd"}
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "text" : {"name" : "Nima Mikail"},
+                "collapsed" : true,
+                "children" : [
+                    {
+                        "text" : {"name" : "Adam Fultz"},
+                        "collapsed" : true,
+                        "childrenDropLevel" : 1,
+                        "children" : [
+                            {
+                                "text" : {"name" : "Sidharth Parwani"},
+                                "collapsed" : true,
+                                "children" : [
+                                    {
+                                        "text" : {"name" : "Stephen Gilmartin"}
+                                    },
+                                    {
+                                        "pseudo" : true,
+                                        "children" : [
+                                            {
+                                                "text" : {"name" : "Angad Daryani"}
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "text" : {"name" : "Reed Nikolich"},
+                "collapsed" : true,
+                "children" : [
+                    {
+                        "text" : {"name" : "Jeff Miller"}
+                    }
+                ]
+            },
+            {
+                "text" : {"name" : "Matthew Pack"},
+                "collapsed" : true,
+                "children": [
+                    {
+                        "text" : {"name" : "Augustine Ho"},
+                        "collapsed" : true,
+                        "childrenDropLevel" : 2,
+                        "children" : [
+                            {
+                                "text" : {"name" : "Shourya Khare"},
+                                "collapsed" : true,
+                                "children" : [
+                                    {
+                                        "children" : [
+                                            {
+                                                "text" : {"name" : "Gabriel Weese"}
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "text" : {"name" : "Jay Sills"},
+                "collapsed" : true
+            },
+            {
+                "text" : {"name" : "Patrick Sosa"},
+                "collapsed" : true,
+                "children" : [
+                    {
+                        "text" : {"name" : "Tommy Nguyen"}
+                    }
+                ]
+            },
+            {
+                "text" : {"name" : "Andrew Swartz"},
+                "childrenDropLevel" : 1,
+                "childrenDropLevel" : 1,
+                "children" : [
+                    {
+                        "text" : {"name" : "Ethan Everett"},
+                        "collapsed" : true,
+                        "children" : [
+                            {
+                                "text" : {"name" : "Marion Anderson"},
+                                "collapsed" : true,
+                                "children" : [
+                                    {
+                                        "text" : {"name" : "Alex Ard-Kelly"}
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "text" : {"name" : "Matthew Wolfsen"},
+                "collapsed" : true,
+                "childrenDropLevel" : 1,
+                "children" : [
+                    {
+                        "text" : {"name" : "Matthew Woodward"},
+                        "collapsed" : true,
+                        "childrenDropLevel" : 1,
+                        "children" : [
+                            {
+                                "text" : {"name" : "Marcus McGuire"}
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "pseudo" : true,
+                "children" : [
+                    {
+                        "text" : {"name" : "Johnathan Gosyne"},
+                        "collapsed" : true,
+                        "children" : [
+                            {
+                                "text" : {"name" : "John Carnahan"},
+                                "collapsed" : true,
+                                "childrenDropLevel" : 1,
+                                "children" : [
+                                    {
+                                        "text" : {"name" : "Evan Shi"},
+                                        "collapsed" : true,
+                                        "children" : [
+                                            {
+                                                "text" : {"name" : "Dominic Kynkor"}
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
