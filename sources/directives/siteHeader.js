@@ -27,6 +27,10 @@ angular.module('gt-tri').directive('siteHeader', function () {
                     $state.go('Home');
                 };
 
+                $scope.goToAdmin = function () {
+                    $state.go('Admin');
+                };
+
                 $scope.goToCalendar = function () {
                     $state.go('Calendar');
                 };
@@ -60,69 +64,86 @@ angular.module('gt-tri').directive('siteHeader', function () {
                 };
             }],
             template: `<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <div class="col-md-11 container">
-                <a class="navbar-brand" ng-click="goToHome()">
-                    <img src="/sources/images/logo.png" class="rounded navbar-logo"
-                        height="37">
-                    <font color="Grey">Triangle @ GT</font>
-                </a>
-                <div class="collapse navbar-collapse" id="mainNavbar">
-                    <ul class="nav navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" ng-click="goToHome()">
-                                Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" ng-click="goToCalendar()">
-                                Calendar
-                            </a>
-                        </li>
-                        <li class="nav-item" ng-show="permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">
-                            <a class="nav-link" ng-click="goToEventDiagnostics()">
-                                Event Diagnostics
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" ng-click="goToEventPolicies()">
-                                Event Policies
-                            </a>
-                        </li>
-                        <li class="nav-item" ng-show="permission === 'alumni' || permission === 'candidate' || permission === 'brother' || permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">
-                            <a class="nav-link" ng-click="goToMyAccount()">
-                                My Account
-                            </a>
-                        </li>
-                        <li class="nav-item" ng-show="permission === 'alumni' || permission === 'candidate' || permission === 'brother' || permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">
-                            <a class="nav-link" ng-click="goToBudget()">
-                                Budget
-                            </a>
-                        </li>
-                        <li class="nav-item" ng-show="permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">
-                            <a class="nav-link" ng-click="goToTransactions()">
-                                Transactions
-                            </a>
-                        </li>
-                        <li class="nav-item" ng-show="permission === 'financial officer' || permission === 'admin'">
-                            <a class="nav-link" ng-click="goToFinancialStatus()">
-                                Financial Status
-                            </a>
-                        </li>
-                        <li class="nav-item" ng-show="permission === 'alumni' || permission === 'candidate' || permission === 'brother' || permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">
-                            <a class="nav-link" ng-click="goToFamilyTrees()">
-                                Family Trees
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="nav navbar-nav navbar-right">
-                    <button class="btn btn-primary" ng-show="!loggedIn" ng-click="login()">Login</button>
-                    <div class="text-right" ng-show="loggedIn">
-                        <font color="Grey">Welcome, {{loggedInUser.name}}</font>
-                        <button class="btn btn-primary" ng-click="logout()">Logout</button>
+                <div class="container-fluid">
+                    <div class="nav-bar-header">
+                        <a class="navbar-brand" ng-click="goToHome()">
+                            <img src="/sources/images/logo.png" class="rounded navbar-logo"
+                            height="37">
+                            <font color="Grey">Triangle @ GT</font>
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="mainNavbar">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a class="nav-link" ng-click="goToHome()">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle nav-link" data-toggle="dropdown">Events</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="nav-link" ng-click="goToCalendar()">
+                                            Calendar
+                                        </a>
+                                    </li>
+                                    <li ng-show="permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">
+                                        <a class="nav-link" ng-click="goToEventDiagnostics()">
+                                            Event Diagnostics
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" ng-click="goToEventPolicies()">
+                                            Event Policies
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown" ng-show="permission === 'alumni' || permission === 'candidate' || permission === 'brother' || permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">
+                                <a class="dropdown-toggle nav-link" data-toggle="dropdown">Finances</a>
+                                <ul class="dropdown-menu">
+                                    <li ng-show="permission === 'alumni' || permission === 'candidate' || permission === 'brother' || permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">
+                                        <a class="nav-link" ng-click="goToMyAccount()">
+                                            My Account
+                                        </a>
+                                    </li>
+                                    <li ng-show="permission === 'alumni' || permission === 'candidate' || permission === 'brother' || permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">
+                                        <a class="nav-link" ng-click="goToBudget()">
+                                            Budget
+                                        </a>
+                                    </li>
+                                    <li ng-show="permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">
+                                        <a class="nav-link" ng-click="goToTransactions()">
+                                            Transactions
+                                        </a>
+                                    </li>
+                                    <li ng-show="permission === 'financial officer' || permission === 'admin'">
+                                        <a class="nav-link" ng-click="goToFinancialStatus()">
+                                            Financial Status
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li ng-show="permission === 'alumni' || permission === 'candidate' || permission === 'brother' || permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">
+                                <a class="nav-link" ng-click="goToFamilyTrees()">
+                                    Family Trees
+                                </a>
+                            </li>
+                            <li ng-show="permission === 'admin'">
+                                <a class="nav-link" ng-click="gotoAdmin()">
+                                    Admin Panel
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav navbar-nav navbar-right">
+                        <button class="btn btn-primary" ng-show="!loggedIn" ng-click="login()">Login</button>
+                        <div class="text-right" ng-show="loggedIn">
+                            <font color="Grey">Welcome, {{loggedInUser.name}}</font>
+                            <button class="btn btn-primary" ng-click="logout()">Logout</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>`
+            </nav>`
         }
     });

@@ -11,7 +11,7 @@
                 params: {obj: null}
             }).state('Admin', {
                 url: "/Admin",
-                templateUrl: "/sources/view/AdminView.html",
+                templateUrl: "/sources/views/AdminView.html",
                 params: {obj: null}
             }).state('Budget', {
                 url: "/Budget",
