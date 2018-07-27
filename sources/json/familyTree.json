@@ -118,8 +118,7 @@
                 ]
             },
             {
-                "text" : {"name" : "Jay", "desc": "Sills"},
-                "collapsed" : true
+                "text" : {"name" : "Jay", "desc": "Sills"}
             },
             {
                 "text" : {"name" : "Patrick", "desc": "Sosa"},
