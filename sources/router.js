@@ -37,11 +37,13 @@
             }).state('FamilyTrees', {
                 url: "/FamilyTrees?person",
                 templateUrl: "/sources/views/FamilyTreesView.html",
-                params: {
-                    eventId: {
-                        value: '',
-                        squash: true,
-                    }
+                params: {obj: null},
+                data: {
+                    css: [
+                        "/node_modules/treant-js/examples/collapsable/collapsable.css",
+                        "/node_modules/treant-js/Treant.css",
+                        "/node_modules/treant-js/vendor/perfect-scrollbar/perfect-scrollbar.css"
+                    ]
                 }
             }).state('FinancialStatus', {
                 url: "/FinancialStatus",
