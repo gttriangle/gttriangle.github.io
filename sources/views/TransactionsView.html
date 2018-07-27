@@ -1,8 +1,8 @@
 <div ng-controller="TransactionsCtrl">
-    <table class="table table-hover table-bordered">
+    <table class="table table-sm table-hover table-bordered">
         <thead>
-            <th scope="col" class="width-50" ng-show="permission === 'financial officer' || permission === 'admin'">&nbsp;</th>
-            <th scope="col" class="width-50" ng-show="permission === 'financial officer' || permission === 'admin'">&nbsp;</th>
+            <th scope="col" class="width-100" ng-show="permission === 'financial officer' || permission === 'admin'">Edit</th>
+            <th scope="col" class="width-100" ng-show="permission === 'financial officer' || permission === 'admin'">Delete</th>
             <th scope="col" ng-click="sortByFrom()">From</th>
             <th scope="col" ng-click="sortByTo()">To</th>
             <th scope="col" ng-click="sortByAmount()">Amount</th>
@@ -11,11 +11,13 @@
         </thead>
         <tbody>
             <tr ng-repeat="transaction in vm.transactions">
-                <th scope="row" class="text-center"><i class="fa fa-bars"
-                       ng-show="permission === 'financial officer' || permission === 'admin'"
+                <th scope="row" class="text-center"
+                    ng-show="permission === 'financial officer' || permission === 'admin'">
+                    <i class="fa fa-bars"
                        ng-click="vm.editTransaction(transaction.$id)"></i></td>
-                <th scope="row" class="text-center"><i class="fa fa-times"
-                       ng-show="permission === 'financial officer' || permission === 'admin'"
+                <th scope="row" class="text-center"
+                    ng-show="permission === 'financial officer' || permission === 'admin'">
+                    <i class="fa fa-times"
                        ng-click="vm.editTransaction(transaction.$id)"></i></td>
                 <td>{{transaction.from}}</td>
                 <td>{{transaction.to}}</td>
