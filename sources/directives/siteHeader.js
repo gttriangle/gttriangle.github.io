@@ -56,7 +56,7 @@ angular.module('gt-tri').directive('siteHeader', function () {
                 };
 
                 $scope.goToFamilyTrees = function () {
-                    $state.go('FamilyTrees', {person: $scope.loggedInUser.name});
+                    $state.go('FamilyTrees');
                 };
             }],
             template: `<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
