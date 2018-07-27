@@ -130,7 +130,7 @@ angular.module('gt-tri').directive('siteHeader', function () {
                                 </a>
                             </li>
                             <li ng-show="permission === 'admin'">
-                                <a class="nav-link" ng-click="gotoAdmin()">
+                                <a class="nav-link" ng-click="goToAdmin()">
                                     Admin Panel
                                 </a>
                             </li>

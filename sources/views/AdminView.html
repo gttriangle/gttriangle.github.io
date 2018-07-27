@@ -1,3 +1,21 @@
 <div ng-controller="AdminCtrl">
-    
+    <table class="table table-responsive table-hover">
+        <thead>
+            <th class="width-200">Name</th>
+            <th class="width-350">Email</th>
+            <th class="width-200">Last Login</th>
+            <th class="width-200">Permission</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in allUsers">
+                <td><input type="text" class="form-control form-control-sm" ng-model="user.name" /></td>
+                <td>{{user.email}}</td>
+                <td>{{user.lastLogin}}</td>
+                <td>
+                    <select class="form-control form-control-sm" ng-model="user.permission"
+                            ng-options="permission for permission in vm.permissionList"></select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
