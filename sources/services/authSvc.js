@@ -9,19 +9,6 @@
             allUsers = result;
         })
 
-        var getError = function (error) {
-            switch (error.message) {
-                case 'signInWithEmailAndPassword failed: First argument "email" must be a valid string.':
-                    return 'Email cannot be empty';
-                break;
-                default:
-                    console.log(error.message);
-                    return error.message
-            }
-        }
-
-
-
         var loginUser = function (email, password) {
             var defer = $q.defer();
             try {
@@ -30,14 +17,15 @@
                     defer.resolve();
                 })
             } catch (e) {
-                defer.reject(getError(e));
+                defer.reject(e);
             }
             return defer.promise;
         }
 
         var logoutUser = function() {
             firebase.auth().signOut().then(function () {
-                $rootScope.$broadcast('loginChange', false)
+                $rootScope.$broadcast('loginChange', false);
+                $state.go('Login');
             });
         }
 
@@ -55,11 +43,9 @@
                             defer.resolve('Success');
                         });
                     });
-                }, function (error) {
-                    defer.reject(error);
                 });
             } catch (e) {
-                defer.reject(getError(e));
+                defer.reject(e);
             }
             return defer.promise;
         }
