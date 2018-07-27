@@ -133,7 +133,7 @@
             {
                 "text" : {"name" : "Andrew", "desc":"Swartz"},
                 "childrenDropLevel" : 1,
-                "childrenDropLevel" : 1,
+                "collapsed" : true,
                 "children" : [
                     {
                         "text" : {"name" : "Ethan", "desc": "Everett"},
