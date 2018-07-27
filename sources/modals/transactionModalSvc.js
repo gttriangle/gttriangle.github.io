@@ -32,7 +32,7 @@
         this.show = function (modalData) {
             type = modalData.type;
             transaction = angular.copy(modalData.transaction);
-
+            transaction.date = new Date(transaction.date);
             var tempModalDefaults = {};
             angular.extend(tempModalDefaults, modalDefaults);
 
@@ -53,6 +53,7 @@
                 if (vm.transaction.to == null || vm.transaction.from == null || vm.transaction.amount == null || vm.transaction.date == null) {
                     toaster.pop('error', null, "Only memo may be blank");
                 } else {
+                    vm.transaction.date = vm.transaction.date.toLocaleDateString("en-US");
                     $uibModalInstance.close(vm.transaction);
                 }
             }

@@ -11,8 +11,9 @@
 
         var loginUser = function (email, password) {
             var defer = $q.defer();
-            firebase.auth().signInWithEmailAndPassword(email, password).then(function (result) {
+            firebase.auth().signInWithEmailAndPassword(email, password).then(async function (result) {
                 var now = new Date();
+                await promise;
                 $rootScope.$broadcast('loginChange', true, allUsers[result.user.uid]);
                 localStorageService.set('authData', {
                     email: email,

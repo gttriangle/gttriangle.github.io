@@ -69,7 +69,7 @@
 
             vm.editTransaction = function (id) {
                 var idx = vm.transactions.$indexFor(id);
-                transactionModalSvc.showModal(vm.transactions[idx]).then(function (result) {
+                transactionModalSvc.showModal({ transaction: vm.transactions[idx] }).then(function (result) {
                     if (!!result) {
                         vm.transactions[idx] = result;
                         vm.transactions.$save(idx);
