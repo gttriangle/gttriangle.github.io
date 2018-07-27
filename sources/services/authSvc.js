@@ -21,7 +21,11 @@
                     name: allUsers[result.user.uid].name,
                     permission: allUsers[result.user.uid].permission,
                     logoutTime: now.setHours(now.getHours() + 2)
-                })
+                });
+                allUsers[result.user.uid].lastLogin = (new Date()).toLocaleDateString('en-US', {
+                    month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'
+                });
+                allUsers.$save();
                 defer.resolve();
             }, function (e) {
                 defer.reject(e.message);

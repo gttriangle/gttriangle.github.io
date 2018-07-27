@@ -13,23 +13,23 @@
         }
     },
     "nodeStructure" : {
-        "text" : {"name" : "Hursh Sureka"},
+        "text" : {"name" : "Hursh", "desc": "Sureka"},
         "children" : [
             {
-                "text" : {"name" : "Elliott Childre"},
+                "text" : {"name" : "Elliott", "desc": "Childre"},
                 "collapsed" : true,
                 "children" : [
                     {
-                        "text" : {"name" : "Dustin Sloan"},
+                        "text" : {"name" : "Dustin", "desc": "Sloan"},
                         "childrenDropLevel" : 2,
                         "collapsed" : true,
                         "children" : [
                             {
-                                "text" : {"name" : "Triton Wolfe"},
+                                "text" : {"name" : "Triton", "desc": "Wolfe"},
                                 "collapsed" : true,
                                 "children" : [
                                     {
-                                        "text" : {"name" : "Diego Heinrich"}
+                                        "text" : {"name" : "Diego", "desc":"Heinrich"}
                                     }
                                 ]
                             }
@@ -38,45 +38,45 @@
                 ]
             },
             {
-                "text" : {"name" : "Mark Corrin"}
+                "text" : {"name" : "Mark", "desc": "Corrin"}
             },
             {
-                "text" : {"name" : "Chase Dyer"},
+                "text" : {"name" : "Chase", "desc": "Dyer"},
                 "childrenDropLevel" : 3,
                 "collapsed" : true,
                 "children" : [
                     {
-                        "text" : {"name" : "Kavir Jaggernauth"},
+                        "text" : {"name" : "Kavir", "desc": "Jaggernauth"},
                         "collapsed" : true,
                         "children" : [
                             {
-                                "text" : {"name" : "Zachary Byrd"}
+                                "text" : {"name" : "Zachary", "desc": "Byrd"}
                             }
                         ]
                     }
                 ]
             },
             {
-                "text" : {"name" : "Nima Mikail"},
+                "text" : {"name" : "Nima", "desc":"Mikail"},
                 "collapsed" : true,
                 "children" : [
                     {
-                        "text" : {"name" : "Adam Fultz"},
+                        "text" : {"name" : "Adam", "desc": "Fultz"},
                         "collapsed" : true,
                         "childrenDropLevel" : 1,
                         "children" : [
                             {
-                                "text" : {"name" : "Sidharth Parwani"},
+                                "text" : {"name" : "Sidharth", "desc": "Parwani"},
                                 "collapsed" : true,
                                 "children" : [
                                     {
-                                        "text" : {"name" : "Stephen Gilmartin"}
+                                        "text" : {"name" : "Stephen", "desc": "Gilmartin"}
                                     },
                                     {
                                         "pseudo" : true,
                                         "children" : [
                                             {
-                                                "text" : {"name" : "Angad Daryani"}
+                                                "text" : {"name" : "Angad", "desc": "Daryani"}
                                             }
                                         ]
                                     }
@@ -87,29 +87,29 @@
                 ]
             },
             {
-                "text" : {"name" : "Reed Nikolich"},
+                "text" : {"name" : "Reed", "desc": "Nikolich"},
                 "collapsed" : true,
                 "children" : [
                     {
-                        "text" : {"name" : "Jeff Miller"}
+                        "text" : {"name" : "Jeff", "desc":"Miller"}
                     }
                 ]
             },
             {
-                "text" : {"name" : "Matthew Pack"},
+                "text" : {"name" : "Matthew", "desc":"Pack"},
                 "collapsed" : true,
                 "children": [
                     {
-                        "text" : {"name" : "Augustine Ho"},
+                        "text" : {"name" : "Augustine", "desc": "Ho"},
                         "collapsed" : true,
                         "childrenDropLevel" : 2,
                         "children" : [
                             {
-                                "text" : {"name" : "Shourya Khare"},
+                                "text" : {"name" : "Shourya", "desc": "Khare"},
                                 "collapsed" : true,
                                 "children" : [
                                     {
-                                        "text" : {"name" : "Gabriel Weese"}
+                                        "text" : {"name" : "Gabriel", "desc": "Weese"}
                                     }
                                 ]
                             }
@@ -118,33 +118,32 @@
                 ]
             },
             {
-                "text" : {"name" : "Jay Sills"},
-                "collapsed" : true
+                "text" : {"name" : "Jay", "desc": "Sills"}
             },
             {
-                "text" : {"name" : "Patrick Sosa"},
+                "text" : {"name" : "Patrick", "desc": "Sosa"},
                 "collapsed" : true,
                 "children" : [
                     {
-                        "text" : {"name" : "Tommy Nguyen"}
+                        "text" : {"name" : "Tommy", "desc": "Nguyen"}
                     }
                 ]
             },
             {
-                "text" : {"name" : "Andrew Swartz"},
+                "text" : {"name" : "Andrew", "desc":"Swartz"},
                 "childrenDropLevel" : 1,
-                "childrenDropLevel" : 1,
+                "collapsed" : true,
                 "children" : [
                     {
-                        "text" : {"name" : "Ethan Everett"},
+                        "text" : {"name" : "Ethan", "desc": "Everett"},
                         "collapsed" : true,
                         "children" : [
                             {
-                                "text" : {"name" : "Marion Anderson"},
+                                "text" : {"name" : "Marion", "desc": "Anderson"},
                                 "collapsed" : true,
                                 "children" : [
                                     {
-                                        "text" : {"name" : "Alex Ard-Kelly"}
+                                        "text" : {"name" : "Alex", "desc":"Ard-Kelly"}
                                     }
                                 ]
                             }
@@ -153,17 +152,17 @@
                 ]
             },
             {
-                "text" : {"name" : "Matthew Wolfsen"},
+                "text" : {"name" : "Matthew", "desc": "Wolfsen"},
                 "collapsed" : true,
                 "childrenDropLevel" : 1,
                 "children" : [
                     {
-                        "text" : {"name" : "Matthew Woodward"},
+                        "text" : {"name" : "Matthew", "desc": "Woodward"},
                         "collapsed" : true,
                         "childrenDropLevel" : 1,
                         "children" : [
                             {
-                                "text" : {"name" : "Marcus McGuire"}
+                                "text" : {"name" : "Marcus", "desc": "McGuire"}
                             }
                         ]
                     }
@@ -173,20 +172,20 @@
                 "pseudo" : true,
                 "children" : [
                     {
-                        "text" : {"name" : "Johnathan Gosyne"},
+                        "text" : {"name" : "Johnathan", "desc":"Gosyne"},
                         "collapsed" : true,
                         "children" : [
                             {
-                                "text" : {"name" : "John Carnahan"},
+                                "text" : {"name" : "John", "desc":"Carnahan"},
                                 "collapsed" : true,
                                 "childrenDropLevel" : 1,
                                 "children" : [
                                     {
-                                        "text" : {"name" : "Evan Shi"},
+                                        "text" : {"name" : "Evan", "desc": "Shi"},
                                         "collapsed" : true,
                                         "children" : [
                                             {
-                                                "text" : {"name" : "Dominic Kynkor"}
+                                                "text" : {"name" : "Dominic", "desc": "Kynkor"}
                                             }
                                         ]
                                     }

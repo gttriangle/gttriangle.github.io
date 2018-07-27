@@ -48,6 +48,10 @@ blockquote {
     cursor: not-allowed;
 }
 
+.navbar-nav > li > .dropdown-menu {
+    background-color: #343a40 !important;
+}
+
 .main-page {
     margin-left: 5vw;
     margin-right: 5vw;

@@ -9,6 +9,10 @@
                 url: "/Account",
                 templateUrl: "/sources/views/AccountView.html",
                 params: {obj: null}
+            }).state('Admin', {
+                url: "/Admin",
+                templateUrl: "/sources/views/AdminView.html",
+                params: {obj: null}
             }).state('Budget', {
                 url: "/Budget",
                 templateUrl: "/sources/views/BudgetView.html",
@@ -55,6 +59,6 @@
                 templateUrl: "/sources/views/TransactionsView.html",
                 params: {obj: null}
             });
-            $urlRouterProvider.otherwise('Login');
+            $urlRouterProvider.otherwise('Home');
         }]);
 })(window);
