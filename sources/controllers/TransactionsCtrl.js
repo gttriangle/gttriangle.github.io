@@ -6,6 +6,34 @@
         if (['chair', 'officer', 'financial officer', 'admin'].indexOf($scope.permission) == -1) {
             $state.go('Home');
         }
+        $scope.$on('permissionChange', function (event, newPermission) {
+            $scope.permission = newPermission;
+            if (['chair', 'officer', 'financial officer', 'admin'].indexOf($scope.permission) == -1) {
+                $state.go('Home');
+            }
+
+            if (['financial officer', 'admin'].indexOf($scope.permission == -1)) {
+                delete vm.addTransaction;
+                delete vm.editTransaction;
+            } else {
+                vm.addTransaction = function () {
+                    transactionModalSvc.showModal().then(function (result) {
+                        vm.transactions.$add(result);
+                    });
+                }
+
+                vm.editTransaction = function (id) {
+                    var idx = vm.transactions.$indexFor(id);
+                    transactionModalSvc.showModal({ transaction: vm.transactions[idx] }).then(function (result) {
+                        if (!!result) {
+                            vm.transactions[idx] = result;
+                            vm.transactions.$save(idx);
+                        }
+                    });
+                }
+            }
+        })
+
         var vm = $scope.vm || {}
         $scope.vm = vm;
         var promise = $firebaseArray(firebase.database().ref().child('Transactions')).$loaded($scope, 'transactions');
