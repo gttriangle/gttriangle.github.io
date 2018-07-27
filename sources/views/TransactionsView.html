@@ -23,7 +23,7 @@
                         <th scope="row" class="text-center"
                         ng-show="permission === 'financial officer' || permission === 'admin'">
                         <i class="fa fa-times"
-                        ng-click="vm.editTransaction(transaction.$id)"></i></td>
+                        ng-click="vm.deleteTransaction(transaction.$id)"></i></td>
                         <td>{{transaction.from}}</td>
                         <td>{{transaction.to}}</td>
                         <td>${{transaction.amount}}</td>

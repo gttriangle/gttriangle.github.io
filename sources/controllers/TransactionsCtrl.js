@@ -31,6 +31,11 @@
                         }
                     });
                 }
+
+                vm.deleteTransaction = function (id) {
+                    var idx = vm.transactions.$indexFor(id);
+                    vm.transactions.$remove(idx);
+                }
             }
         })
 
@@ -103,6 +108,11 @@
                         vm.transactions.$save(idx);
                     }
                 });
+            }
+
+            vm.deleteTransaction = function (id) {
+                var idx = vm.transactions.$indexFor(id);
+                vm.transactions.$remove(idx);
             }
         }
     }
