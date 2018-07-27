@@ -64,7 +64,7 @@ angular.module('gt-tri').directive('siteHeader', function () {
                 };
             }],
             template: `<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-                <div class="container-fluid">
+                <div class="container-fluid col-md-11">
                     <div class="nav-bar-header">
                         <a class="navbar-brand" ng-click="goToHome()">
                             <img src="/sources/images/logo.png" class="rounded navbar-logo"
