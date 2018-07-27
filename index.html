@@ -56,7 +56,8 @@
         <script src="/node_modules/treant-js/vendor/jquery.easing.js"></script>
 
         <!-- App references --->
-        <link href="/sources/css/site.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/sources/css/utils.css" />
+        <link rel="stylesheet" href="/sources/css/site.css" />
         <script src="/sources/config.js"></script>
         <script src="/sources/router.js"></script>
         <script src="/sources/services/authSvc.js"></script>
@@ -72,15 +73,19 @@
         <script src="/sources/controllers/HomeCtrl.js"></script>
         <script src="/sources/controllers/LoginCtrl.js"></script>
         <script src="/sources/controllers/TransactionsCtrl.js"></script>
+        <script src="/sources/modals/transactionModalSvc.js"></script>
 
 
     </head>
-    <body ng-app="gt-tri">
+    <body ng-app="gt-tri" class="full-screen">
         <site-header></site-header>
         <div toaster-container
             toaster-options="{'time-out': 1800, 'position-class': 'toast-bottom-right', 'close-button': false}">
         </div>
-        <ui-view></ui-view>
+        <div class="main-page">
+            <ui-view></ui-view>
+        </div>
+
     </body>
 
 </html>
