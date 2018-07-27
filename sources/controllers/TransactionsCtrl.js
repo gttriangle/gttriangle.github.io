@@ -37,7 +37,7 @@
             if (vm.sortedBy == 'from') {
                 vm.transactions.reverse()
             } else {
-                vm.transaction.sort(function (a, b) { return a.from > b.from; });
+                vm.transactions.sort(function (a, b) { return a.from > b.from; });
                 vm.sortedBy = 'from';
             }
         }
