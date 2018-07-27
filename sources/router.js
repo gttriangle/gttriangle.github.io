@@ -37,12 +37,7 @@
             }).state('FamilyTrees', {
                 url: "/FamilyTrees?person",
                 templateUrl: "/sources/views/FamilyTreesView.html",
-                params: {
-                    eventId: {
-                        value: '',
-                        squash: true,
-                    }
-                }
+                params: {obj: null},
             }).state('FinancialStatus', {
                 url: "/FinancialStatus",
                 templateUrl: "/sources/views/FinancialStatusView.html",
