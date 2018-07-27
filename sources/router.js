@@ -9,6 +9,10 @@
                 url: "/Account",
                 templateUrl: "/sources/views/AccountView.html",
                 params: {obj: null}
+            }).state('Admin', {
+                url: "/Admin",
+                templateUrl: "/sources/view/AdminView.html",
+                params: {obj: null}
             }).state('Budget', {
                 url: "/Budget",
                 templateUrl: "/sources/views/BudgetView.html",
