@@ -11,7 +11,5 @@
 
         $firebaseObject(firebase.database().ref().child('Users')).$bindTo($scope, 'allUsers');
         vm.permissionList = ['unregistered', 'alumni', 'candidate', 'brother', 'chair', 'officer', 'financial officer', 'admin'];
-
-
     }
 })();
