@@ -82,7 +82,7 @@ angular.module('gt-tri').directive('siteHeader', function () {
                             </li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle nav-link">Events</a>
-                                <ul class="dropdown-menu" style="border-radius:10px">
+                                <ul class="dropdown-menu">
                                     <li>
                                         <a class="nav-link" ng-click="goToCalendar()">
                                             Calendar
@@ -102,7 +102,7 @@ angular.module('gt-tri').directive('siteHeader', function () {
                             </li>
                             <li class="dropdown" ng-show="permission === 'alumni' || permission === 'candidate' || permission === 'brother' || permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">
                                 <a class="dropdown-toggle nav-link">Finances</a>
-                                <ul class="dropdown-menu" style="border-radius:10px">
+                                <ul class="dropdown-menu">
                                     <li ng-show="permission === 'alumni' || permission === 'candidate' || permission === 'brother' || permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">
                                         <a class="nav-link" ng-click="goToMyAccount()">
                                             My Account

@@ -63,6 +63,7 @@ blockquote {
 
 .navbar-nav > li > .dropdown-menu {
     background-color: #343a40 !important;
+    border-radius:10px;
 }
 
 .dropdown:hover .dropdown-menu {
