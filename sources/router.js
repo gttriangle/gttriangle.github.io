@@ -34,10 +34,6 @@
                         squash: true
                     }
                 }
-            }).state('EventPolicies', {
-                url: "/EventPolicies",
-                templateUrl: "/sources/views/EventPoliciesView.html",
-                params: {obj: null}
             }).state('FamilyTrees', {
                 url: "/FamilyTrees?person",
                 templateUrl: "/sources/views/FamilyTreesView.html",
