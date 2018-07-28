@@ -13,7 +13,7 @@
         var loginUser = function (email, password) {
             var defer = $q.defer();
             firebase.auth().signInWithEmailAndPassword(email, password).then(async function (result) {
-                var now = new Date();
+                var logoutTime = (new Date()).setHours((new Date()).getHours() +2);
                 await promise;
                 $rootScope.$broadcast('loginChange', true, allUsers[result.user.uid]);
                 localStorageService.set('authData', {
@@ -21,8 +21,7 @@
                     password: password,
                     name: allUsers[result.user.uid].name,
                     permission: allUsers[result.user.uid].permission,
-                    uid: result.user.uid,
-                    logoutTime: now.setHours(now.getHours() + 2)
+                    logoutTime: logoutTime
                 });
                 uid = result.user.uid;
                 $rootScope.$watch(function () {
@@ -35,7 +34,7 @@
                     $rootScope.$broadcast('permissionChange', newValue);
                 })
                 allUsers[result.user.uid].lastLogin = (new Date()).toLocaleDateString('en-US', {
-                    month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'
+                    month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', timeZone: 'UTC', timeZoneName: 'short'
                 });
             }, function (e) {
                 defer.reject(e.message);
