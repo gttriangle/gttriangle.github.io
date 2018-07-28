@@ -52,6 +52,10 @@ blockquote {
     background-color: #343a40 !important;
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 .main-page {
     margin-left: 5vw;
     margin-right: 5vw;

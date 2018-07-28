@@ -1,7 +1,7 @@
 angular.module('gt-tri').directive('siteHeader', function () {
         return {
             restrict: "E",
-            controller: ['$scope', '$state', 'authSvc', function($scope, $state, authSvc) {
+            controller: ['$scope', '$state', 'authSvc', '$window', function($scope, $state, authSvc, $window) {
                 $scope.loggedIn = authSvc.loggedIn();
                 $scope.loggedInUser = ($scope.loggedIn) ? authSvc.loggedInUser() : {permission: 'unregistered'};
                 $scope.permission = $scope.loggedInUser.permission;
@@ -40,7 +40,7 @@ angular.module('gt-tri').directive('siteHeader', function () {
                 };
 
                 $scope.goToEventPolicies = function () {
-                    $state.go('EventPolicies');
+                    $window.open('/sources/pdf/eventPolicies.pdf');
                 };
 
                 $scope.goToMyAccount = function () {
@@ -63,7 +63,8 @@ angular.module('gt-tri').directive('siteHeader', function () {
                     $state.go('FamilyTrees');
                 };
             }],
-            template: `<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            template: `<div class="col-md-12" style="margin-top:10px; margin-bottom:10px">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="border-radius:15px">
                 <div class="container-fluid">
                     <div class="nav-bar-header">
                         <a class="navbar-brand" ng-click="goToHome()">
@@ -80,8 +81,8 @@ angular.module('gt-tri').directive('siteHeader', function () {
                                 </a>
                             </li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle nav-link" data-toggle="dropdown">Events</a>
-                                <ul class="dropdown-menu">
+                                <a class="dropdown-toggle nav-link">Events</a>
+                                <ul class="dropdown-menu" style="border-radius:10px">
                                     <li>
                                         <a class="nav-link" ng-click="goToCalendar()">
                                             Calendar
@@ -100,8 +101,8 @@ angular.module('gt-tri').directive('siteHeader', function () {
                                 </ul>
                             </li>
                             <li class="dropdown" ng-show="permission === 'alumni' || permission === 'candidate' || permission === 'brother' || permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">
-                                <a class="dropdown-toggle nav-link" data-toggle="dropdown">Finances</a>
-                                <ul class="dropdown-menu">
+                                <a class="dropdown-toggle nav-link">Finances</a>
+                                <ul class="dropdown-menu" style="border-radius:10px">
                                     <li ng-show="permission === 'alumni' || permission === 'candidate' || permission === 'brother' || permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">
                                         <a class="nav-link" ng-click="goToMyAccount()">
                                             My Account
@@ -144,6 +145,7 @@ angular.module('gt-tri').directive('siteHeader', function () {
                         </div>
                     </div>
                 </div>
-            </nav>`
+            </nav>
+        </div>`
         }
     });
