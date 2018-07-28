@@ -63,8 +63,8 @@ angular.module('gt-tri').directive('siteHeader', function () {
                     $state.go('FamilyTrees');
                 };
             }],
-            template: `<div class="col-md-12" style="margin-top:10px; margin-bottom:10px">
-            <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="border-radius:15px">
+            template: `<div class="siteHeader-container col-md-12">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
                 <div class="container-fluid">
                     <div class="nav-bar-header">
                         <a class="navbar-brand" ng-click="goToHome()">
