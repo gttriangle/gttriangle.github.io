@@ -18,7 +18,7 @@
                     transaction: {
                         to: null,
                         from: null,
-                        date: null,
+                        date: new Date(),
                         amount: null,
                         memo: null
                     }
