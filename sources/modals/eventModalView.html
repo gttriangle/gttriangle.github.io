@@ -1,0 +1,90 @@
+<div class="modal-container">
+    <div class="modal-header">
+        <h3>{{vm.type}} Event</h3>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="pre-event">
+                <h4>Pre-event Details</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        Name: <input class="form-control" type="text" ng-model="vm.anEvent.name" />
+                    </div>
+                    <div class="col-md-6">
+                        Date: <input class="form-control" type="date" ng-model="vm.anEvent.date" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        Type:
+                        <select class="form-control" ng-model="vm.anEvent.eventType">
+                            <option></option>
+                            <option>Academic</option>
+                            <option>Brotherhood</option>
+                            <option>Philanthropy</option>
+                            <option>Recruitment</option>
+                            <option>Ritual</option>
+                            <option>Social</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        Planning Time (hrs): <input class="form-control" type="number" ng-model="vm.anEvent.planningTime" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        Estimated Attendance: <input class="form-control" type="number" ng-model="vm.anEvent.estAttendance" />
+                    </div>
+                    <div class="col-md-6">
+                        Lead: <input class="form-control" type="text" ng-model="vm.anEvent.lead" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        Money Spent: <input class="form-control" type="number" ng-model="vm.anEvent.moneySpent" />
+                    </div>
+                    <div class="col-md-6">
+                        Estimated Structure:
+                        <select class="form-control" ng-model="vm.anEvent.structure">
+                            <option></option>
+                            <option>Extremely structured</option>
+                            <option>Somewhat structured</option>
+                            <option>Neutral</option>
+                            <option>Somewhat unstructured</option>
+                            <option>Extremely Unstructured</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12" style="padding: 0px">
+                    Notes: <input class="form-control" type="text" ng-model="vm.anEvent.preEventNotes" />
+                </div>
+            </div>
+            <div class="post-event" ng-show="vm.checkIfDone(vm.anEvent.date)">
+                <h4>Post-event Details</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        Perceived Happiness:
+                        <select class="form-control" ng-model="vm.anEvent.happiness">
+                            <option></option>
+                            <option>Extremely happy</option>
+                            <option>Somewhat happy</option>
+                            <option>Neutral</option>
+                            <option>Somewhat unhappy</option>
+                            <option>Extremely unhappy</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        Attendance: <input class="form-control" type="number" ng-model="vm.anEvent.attendance" />
+                    </div>
+                </div>
+                <div class="col-md-12" style="padding: 0px">
+                    Notes: <input class="form-control" type="text" ng-model="vm.anEvent.postEventNotes" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="vm.complete()">{{vm.type}}</button>
+        <button class="btn btn-primary" ng-click="vm.cancel()">Cancel</button>
+    </div>
+</div>

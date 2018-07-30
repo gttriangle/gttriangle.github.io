@@ -12,6 +12,14 @@ blockquote {
     width:100%;
 }
 
+.post-event {
+    margin-top: 15px;
+}
+
+.events-container {
+    overflow: scroll;
+}
+
 .siteHeader-container {
     margin-top:10px;
     margin-bottom:10px;
