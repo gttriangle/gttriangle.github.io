@@ -1,50 +1,73 @@
-<div ng-controller="BudgetCtrl" class="row">
-    <div class="col-md-6 card">
+<div ng-controller="BudgetCtrl">
+    <div class="card col-lg-12">
         <div class="card-header">
-            <h3>Budget Incomes</h3>
+            <h3>Summary</h3>
         </div>
         <div class="card-body">
-            <button class="btn btn-primary marginbottom" ng-click="vm.addSource(vm.sources)">Add Source</button>
-            <table class="table table-responsive table-hover">
-                <thead>
-                    <th scope="col" class="width-50" ng-show="permission === 'financial officer' || permission === 'admin'">Edit</th>
-                    <th scope="col" class="width-50" ng-show="permission === 'financial officer' || permission === 'admin'">Delete</th>
-                    <th>Source</th>
-                    <th>Amount</th>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="sGuid in vm.sources">
-                        <td class="text-center" ng-show="permission === 'financial officer' || permission === 'admin'" ng-click="vm.editSource(vm.sources, sGuid)"><i class="fa fa-bars"></i></td>
-                        <td class="text-center" ng-show="permission === 'financial officer' || permission === 'admin'" ng-click="vm.deleteSource(vm.sources, sGuid)"><i class="fa fa-times"></i></td>
-                        <td>{{vm.sources[sGuid].name}}</td>
-                        <td>{{vm.sources[sGuid].amount}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            Income: ${{vm.sourceSum}}<br />
+            Expenses: ${{vm.expenseSum}}<br />
+            Total: {{(vm.sourceSum-vm.expenseSum<0)?'-$'+(vm.expenseSum-vm.sourceSum):'$'+(vm.sourceSum-vm.expenseSum)}}
         </div>
     </div>
-    <div class="col-md-6 card">
-        <div class="card-header">
-            <h3>Budget Expenses</h3>
+    <div class="row">
+        <div class="col-lg-6 card">
+            <div class="card-header">
+                <h3>Budget Incomes</h3>
+            </div>
+            <div class="card-body">
+                <button class="btn btn-primary btn-sm marginbottom" ng-click="vm.addSource(sources)" ng-show="permission === 'financial officer' || permission === 'admin'">Add Source</button>
+                <table class="table table-hover">
+                    <thead>
+                        <th scope="col" class="width-50" ng-show="permission === 'financial officer' || permission === 'admin'">Edit</th>
+                        <th scope="col" class="width-50" ng-show="permission === 'financial officer' || permission === 'admin'">Delete</th>
+                        <th scope="col">Source</th>
+                        <th scope="col">Amount</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="source in vm.sources">
+                            <td class="text-center" ng-show="permission === 'financial officer' || permission === 'admin'" ng-click="vm.editSource(sources, source.guid)"><i class="fa fa-bars"></i></td>
+                            <td class="text-center" ng-show="permission === 'financial officer' || permission === 'admin'" ng-click="vm.deleteSource(sources, source.guid)"><i class="fa fa-times"></i></td>
+                            <td>{{source.name}}</td>
+                            <td>{{source.amount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="card-body">
-            <div class="card" ng-repeat="dGuid in vm.departments">
-                <div class="card-header">
-                    <h3>{{vm.departments[dGuid].title}}</h3>
-                </div>
-                <div class="card-body">
-                    <table class="table table-responsive table-hover">
-                        <thead>
-                            <th>Line Item</th>
-                            <th>Amount</th>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="liGuid in vm.departments[guid].lineItems">
-                                <td>{{vm.departments[guid].lineItems[liGuid].name}}</td>
-                                <td>{{vm.departments[guid].lineItems[liGuid].amount}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <div class="col-lg-6 card">
+            <div class="card-header">
+                <h3>Budget Expenses <span><i class="fa fa-sort" ng-click="vm.sortDepartment()"></i></span></h3>
+            </div>
+            <div class="card-body">
+                <button class="btn btn-primary marginbottom" ng-click="vm.addDepartment()" ng-show="!vm.tempDepartment && (permission === 'financial officer' || permission === 'admin')">Add Department</button>
+                <form ng-show="!!vm.tempDepartment">
+                    Department Name:
+                    <input type="text" class="form-control" ng-model="vm.tempDepartment.name">
+                    <button class="btn btn-primary margintop" ng-click="vm.completeDepartment()">Add</button>
+                </form>
+                <div class="card" ng-repeat="department in vm.departments">
+                    <div class="card-header">
+                        <h3>{{department.name}} <span><i class="fa fa-bars" ng-click="vm.editDepartment(department.guid)"></i> <i class="fa fa-times" ng-click="vm.deleteDepartment(department.guid)"></i></span></h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-primary btn-sm marginbottom" ng-click="vm.addSource(department.guid)" ng-show="permission === 'financial officer' || permission === 'admin'">Add Expense</button>
+                        <table class="table table-hover">
+                            <thead>
+                                <th scope="col" class="width-50" ng-show="permission === 'financial officer' || permission === 'admin'">Edit</th>
+                                <th scope="col" class="width-50" ng-show="permission === 'financial officer' || permission === 'admin'">Delete</th>
+                                <th>Line Item</th>
+                                <th>Amount</th>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="lineItem in department.lineItems">
+                                    <td class="text-center" ng-show="permission === 'financial officer' || permission === 'admin'" ng-click="vm.editSource(lineItem.guid, department.guid)"><i class="fa fa-bars"></i></td>
+                                    <td class="text-center" ng-show="permission === 'financial officer' || permission === 'admin'" ng-click="vm.deleteSource(lineItem.guid, department.guid)"><i class="fa fa-times"></i></td>
+                                    <td>{{lineItem.name}}</td>
+                                    <td>{{lineItem.amount}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
