@@ -12,6 +12,22 @@ blockquote {
     width:100%;
 }
 
+.table-sort {
+    margin-left: 10px;
+}
+
+.post-event {
+    margin-top: 15px;
+}
+
+.events-container {
+    overflow: scroll;
+}
+
+.event-table-header {
+    cursor: pointer;
+}
+
 .siteHeader-container {
     margin-top:10px;
     margin-bottom:10px;
@@ -26,6 +42,15 @@ blockquote {
 }
 
 .fa.fa-times:hover {
+    color: red;
+    transform: scale(1.3,1.3);
+}
+
+.fa.fa-check:hover {
+    transform: scale(1.3,1.3);
+}
+
+.fa.fa-exclamation:hover {
     color: red;
     transform: scale(1.3,1.3);
 }
