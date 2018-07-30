@@ -1,7 +1,7 @@
 (function () {
     'use strict';
-    angular.module('gt-tri').controller('BudgetCtrl', ['$scope', '$state', 'authSvc', 'firebase', '$firebaseObject', BudgetCtrl]);
-    function BudgetCtrl($scope, $state, authSvc, firebase, $firebaseObject) {
+    angular.module('gt-tri').controller('BudgetCtrl', ['$scope', '$state', 'authSvc', 'firebase', '$uibModal', '$firebaseObject', 'deleteModalSvc', BudgetCtrl]);
+    function BudgetCtrl($scope, $state, authSvc, firebase, $uibModal, $firebaseObject, deleteModalSvc) {
         var vm = $scope.vm || {};
         $scope.vm = vm;
 
@@ -11,7 +11,12 @@
 
         $scope.$on('permissionChange', function (event, newPermission) {
             if (['financial officer', 'admin'].indexOf(authSvc.permission()) !== -1) {
-
+                delete vm.addDepartment;
+                delete vm.editDepartment;
+                delete vm.deleteDepartment;
+                delete vm.addSource;
+                delete vm.editSource;
+                delete vm.deleteSource;
             } else {
 
             }
@@ -37,7 +42,11 @@
             }
 
             vm.deleteDepartment = function (guid) {
-
+                deleteModalSvc.showModal().then(function (result) {
+                    if (result) {
+                        delete vm.departments[guid];
+                    }
+                });
             }
 
             vm.addSource = function (srcDict) {
@@ -49,7 +58,11 @@
             }
 
             vm.deleteSource = function (srcDict, guid) {
-
+                deleteModalSvc.showModal().then(function (result) {
+                    if (result) {
+                        delete srcDict[guid];
+                    }
+                });
             }
         }
     }

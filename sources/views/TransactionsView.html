@@ -8,11 +8,11 @@
                 <thead>
                     <th scope="col" class="width-100" ng-show="permission === 'financial officer' || permission === 'admin'">Edit</th>
                     <th scope="col" class="width-100" ng-show="permission === 'financial officer' || permission === 'admin'">Delete</th>
-                    <th scope="col" ng-click="sortByFrom()">From</th>
-                    <th scope="col" ng-click="sortByTo()">To</th>
-                    <th scope="col" ng-click="sortByAmount()">Amount</th>
-                    <th scope="col" ng-click="sortByDate()">Date</th>
-                    <th scope="col" ng-click="sortByMemo()">Memo</th>
+                    <th scope="col" class="width-150" ng-click="sortByFrom()">From <span ng-show="vm.sortedBy === 'from'"><i class="fa fa-caret-up" ng-show="vm.up"></i><i class="fa fa-caret-down" ng-show="!vm.up"></i></span></th>
+                    <th scope="col" class="width-150" ng-click="sortByTo()">To <span ng-show="vm.sortedBy === 'to'"><i class="fa fa-caret-up" ng-show="vm.up"></i><i class="fa fa-caret-down" ng-show="!vm.up"></i></span></th>
+                    <th scope="col" class="width-150" ng-click="sortByAmount()">Amount <span ng-show="vm.sortedBy === 'amount'"><i class="fa fa-caret-up" ng-show="vm.up"></i><i class="fa fa-caret-down" ng-show="!vm.up"></i></span></th>
+                    <th scope="col" class="width-150" ng-click="sortByDate()">Date <span ng-show="vm.sortedBy === 'date'"><i class="fa fa-caret-up" ng-show="vm.up"></i><i class="fa fa-caret-down" ng-show="!vm.up"></i></span></th>
+                    <th scope="col" ng-click="sortByMemo()">Memo <span ng-show="vm.sortedBy === 'memo'"><i class="fa fa-caret-up" ng-show="vm.up"></i><i class="fa fa-caret-down" ng-show="!vm.up"></i></span></th>
                 </thead>
                 <tbody>
                     <tr ng-repeat="transaction in vm.transactions">

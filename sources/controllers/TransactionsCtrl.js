@@ -15,6 +15,7 @@
             if (['financial officer', 'admin'].indexOf($scope.permission == -1)) {
                 delete vm.addTransaction;
                 delete vm.editTransaction;
+                delete vm.deleteTransaction;
             } else {
                 vm.addTransaction = function () {
                     transactionModalSvc.showModal().then(function (result) {
@@ -47,49 +48,60 @@
         });
 
         vm.sortedBy = 'date';
+        vm.up = true;
 
         $scope.sortByDate = function () {
             if (vm.sortedBy == 'date') {
                 vm.transactions.reverse();
+                vm.up = !vm.up;
             } else {
                 vm.transactions.sort(function (a, b) { return a.date > b.date; });
                 vm.sortedBy = 'date';
+                vm.up = true;
             }
         }
 
         $scope.sortByMemo = function () {
             if (vm.sortedBy == 'memo') {
-                vm.transactions.reverse()
+                vm.transactions.reverse();
+                vm.up = !vm.up;
             } else {
                 vm.transactions.sort(function (a, b) { return a.memo > b.memo; });
                 vm.sortedBy = 'memo';
+                vm.up = true;
             }
         }
 
         $scope.sortByFrom = function () {
             if (vm.sortedBy == 'from') {
-                vm.transactions.reverse()
+                vm.transactions.reverse();
+                vm.up = !vm.up;
             } else {
                 vm.transactions.sort(function (a, b) { return a.from > b.from; });
                 vm.sortedBy = 'from';
+                vm.up = true;
             }
         }
 
         $scope.sortByTo = function () {
             if (vm.sortedBy == 'to') {
-                vm.transactions.reverse()
+                vm.transactions.reverse();
+                vm.up = !vm.up;
             } else {
                 vm.transactions.sort(function (a, b) { return a.to > b.to; });
                 vm.sortedBy = 'to';
+                vm.up = true;
             }
         }
 
         $scope.sortByAmount = function () {
             if (vm.sortedBy == 'amount') {
                 vm.transactions.reverse()
+                vm.up = !vm.up;
             } else {
                 vm.transactions.sort(function (a, b) { return a.amount > b.amount; });
                 vm.sortedBy = 'amount';
+                vm.up = true;
             }
         }
 

@@ -4,18 +4,23 @@
             <h3>Budget Incomes</h3>
         </div>
         <div class="card-body">
-              <table class="table table-responsive table-hover">
-                  <thead>
-                      <th>Source</th>
-                      <th>Amount</th>
-                  </thead>
-                  <tbody>
-                      <tr ng-repeat="sGuid in vm.sources">
-                          <td>{{vm.sources[sGuid].name}}</td>
-                          <td>{{vm.sources[sGuid].amount}}</td>
-                      </tr>
-                  </tbody>
-              </table>
+            <button class="btn btn-primary marginbottom" ng-click="vm.addSource(vm.sources)">Add Source</button>
+            <table class="table table-responsive table-hover">
+                <thead>
+                    <th scope="col" class="width-50" ng-show="permission === 'financial officer' || permission === 'admin'">Edit</th>
+                    <th scope="col" class="width-50" ng-show="permission === 'financial officer' || permission === 'admin'">Delete</th>
+                    <th>Source</th>
+                    <th>Amount</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="sGuid in vm.sources">
+                        <td class="text-center" ng-show="permission === 'financial officer' || permission === 'admin'" ng-click="vm.editSource(vm.sources, sGuid)"><i class="fa fa-bars"></i></td>
+                        <td class="text-center" ng-show="permission === 'financial officer' || permission === 'admin'" ng-click="vm.deleteSource(vm.sources, sGuid)"><i class="fa fa-times"></i></td>
+                        <td>{{vm.sources[sGuid].name}}</td>
+                        <td>{{vm.sources[sGuid].amount}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <div class="col-md-6 card">
