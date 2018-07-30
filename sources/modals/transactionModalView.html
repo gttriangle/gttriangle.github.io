@@ -14,7 +14,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    Amount: <input class="form-control" type="number" ng-model="vm.transaction.amount" />
+                    Amount: <input class="form-control" type="text" limit-text pattern="'^-?\\d*\\.?\\d{0,2}$'" ng-model="vm.transaction.amount" />
                 </div>
                 <div class="col-md-6">
                     Date: <input class="form-control" type="date" ng-model="vm.transaction.date" />

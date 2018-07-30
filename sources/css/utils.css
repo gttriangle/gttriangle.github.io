@@ -58,7 +58,9 @@
 .width-300 {
     width: 300px;
 }
-
+.width-350 {
+    width: 250px;
+}
 
 /* Font Coloring */
 .bg-col {

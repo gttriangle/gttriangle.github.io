@@ -16,6 +16,12 @@ angular.module('gt-tri').directive('siteHeader', function () {
                     $scope.$apply();
                     return;
                 });
+
+                $scope.$on('permissionChange', function (event, newPermission) {
+                    $scope.permission = newPermission;
+                    $scope.$apply();
+                })
+
                 $scope.login = function () {
                     $state.go('Login');
                 }
