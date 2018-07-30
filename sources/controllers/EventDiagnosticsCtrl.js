@@ -18,6 +18,7 @@
 
         $scope.sortByDate = function () {
             if (vm.sortedBy === 'date') {
+                vm.sortedBy = 'date-reverse';
                 return vm.events.reverse();
             } else {
                 vm.sortedBy = 'date';
@@ -27,6 +28,7 @@
 
         $scope.sortByName = function () {
             if (vm.sortedBy === 'name') {
+                vm.sortedBy = 'name-reverse';
                 return vm.events.reverse();
             } else {
                 vm.sortedBy = 'name';
@@ -36,6 +38,7 @@
 
         $scope.sortByType = function () {
             if (vm.sortedBy === 'type') {
+                vm.sortedBy = 'type-reverse';
                 return vm.events.reverse();
             } else {
                 vm.sortedBy = 'type';
