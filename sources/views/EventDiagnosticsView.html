@@ -32,8 +32,8 @@
                 <td>{{event.date}}</td>
                 <td>{{event.eventType}}</td>
                 <td scope="row" class="text-center">
-                    <i class="fa fa-exclamation" title="Incomplete" ng-show="!checkIfDone(event)"></i>
-                    <i class="fa fa-check" title="Complete" ng-show="checkIfDone(event)"></i>
+                    <i class="fa fa-exclamation" title="Incomplete" ng-show="!checkIfEventDone(event)"></i>
+                    <i class="fa fa-check" title="Complete" ng-show="checkIfEventDone(event)"></i>
                 </td>
             </tr>
         </tbody>

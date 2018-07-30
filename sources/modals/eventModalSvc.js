@@ -56,7 +56,7 @@
             vm.anEvent = anEvent;
             vm.type = type;
 
-            vm.checkIfDone = function (date) {
+            vm.checkIfEventDone = function (date) {
                 if (date == null) {
                     return false;
                 }
@@ -70,10 +70,10 @@
             };
 
             vm.complete = function () {
-                if (vm.checkIfDone(vm.anEvent.date) && (vm.anEvent.name == null || vm.anEvent.date == null || vm.anEvent.eventType == null || vm.anEvent.estAttendance == null
+                if (vm.checkIfEventDone(vm.anEvent.date) && (vm.anEvent.name == null || vm.anEvent.date == null || vm.anEvent.eventType == null || vm.anEvent.estAttendance == null
                     || vm.anEvent.lead == null || vm.anEvent.moneySpent == null || vm.anEvent.structure == null || vm.anEvent.happiness == null || vm.anEvent.attendance == null)) {
                     toaster.pop('error', null, "Only notes can be blank");
-                } else if (!vm.checkIfDone(vm.anEvent.date) && (vm.anEvent.name == null || vm.anEvent.date == null || vm.anEvent.eventType == null || vm.anEvent.estAttendance == null
+                } else if (!vm.checkIfEventDone(vm.anEvent.date) && (vm.anEvent.name == null || vm.anEvent.date == null || vm.anEvent.eventType == null || vm.anEvent.estAttendance == null
                     || vm.anEvent.lead == null || vm.anEvent.moneySpent == null || vm.anEvent.structure == null)) {
                     toaster.pop('error', null, "Only notes can be blank");
                 } else {

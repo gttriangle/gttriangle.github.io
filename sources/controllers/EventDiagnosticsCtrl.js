@@ -1,7 +1,7 @@
 (function () {
     'use strict';
-    angular.module('gt-tri').controller('EventDiagnosticsCtrl', ['$scope', '$state', 'authSvc', 'firebase', '$firebaseArray', 'eventModalSvc', EventDiagnosticsCtrl]);
-    function EventDiagnosticsCtrl($scope, $state, authSvc, firebase, $firebaseArray, eventModalSvc) {
+    angular.module('gt-tri').controller('EventDiagnosticsCtrl', ['$scope', '$state', 'authSvc', 'firebase', '$firebaseArray', 'eventModalSvc', 'deleteModalSvc', EventDiagnosticsCtrl]);
+    function EventDiagnosticsCtrl($scope, $state, authSvc, firebase, $firebaseArray, eventModalSvc, deleteModalSvc) {
         $scope.permission = authSvc.permission();
         if (['chair', 'officer', 'financial officer', 'admin'].indexOf($scope.permission) == -1) {
             $state.go('Home');
@@ -46,7 +46,7 @@
             }
         }
 
-        $scope.checkIfDone = function (event) {
+        $scope.checkIfEventDone = function (event) {
             if (event == null) {
                 return false;
             }
@@ -82,8 +82,12 @@
             }
 
             vm.deleteEvent = function (id) {
-                var idx = vm.events.$indexFor(id);
-                vm.events.$remove(vm.events[idx]);
+                deleteModalSvc.showModal().then(function (response) {
+                    if (response) {
+                        var idx = vm.events.$indexFor(id);
+                        vm.events.$remove(vm.events[idx]);
+                    }
+                });
             }
         }
     }
