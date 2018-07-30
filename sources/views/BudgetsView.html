@@ -1,0 +1,34 @@
+<div ng-controller="BudgetsCtrl">
+    <div class="card">
+        <div class="card-header">
+            <h3>Budgets</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-responsive table-hover">
+                <div ng-show="permission === 'financial officer' || permission === 'admin'">
+                    <button class="btn btn-primary marginbottom" ng-show="!vm.tempBudget" ng-click="vm.addBudget()">Add Budget</button>
+                    <div class="marginbottom" ng-show="!!vm.tempBudget">
+                        <form>
+                            Name: <input class="form-control-sm" ng-model="vm.tempBudget.name" />
+                            <button class="btn btn-primary btn-sm" ng-click="vm.completeBudget()">Complete</button>
+                        </form>
+                    </div>
+                </div>
+                <thead>
+                    <th scope="col" class="width-50">Open</th>
+                    <th scope="col" class="width-50" ng-show="permission === 'financial officer' || permission === 'admin'">Edit</th>
+                    <th scope="col" class="width-50" ng-show="permission === 'financial officer' || permission === 'admin'">Delete</th>
+                    <th>Name</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="(guid, budget) in budgets">
+                        <td class="text-center" ng-click=vm.openBudget(guid)><i class="fa fa-pencil-square-o"></i></td>
+                        <td class="text-center" ng-show="permission === 'financial officer' || permission === 'admin'" ng-click="vm.editBudget(guid)"><i class="fa fa-bars"></i></td>
+                        <td class="text-center" ng-show="permission === 'financial officer' || permission === 'admin'" ng-click="vm.deleteBudget(guid)"><i class="fa fa-times"></i></td>
+                        <td>{{budget.name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -15,7 +15,7 @@
                 <h3>Budget Incomes</h3>
             </div>
             <div class="card-body">
-                <button class="btn btn-primary btn-sm marginbottom" ng-click="vm.addSource(sources)" ng-show="permission === 'financial officer' || permission === 'admin'">Add Source</button>
+                <button class="btn btn-primary btn-sm marginbottom" ng-click="vm.addSource()" ng-show="permission === 'financial officer' || permission === 'admin'">Add Source</button>
                 <table class="table table-hover">
                     <thead>
                         <th scope="col" class="width-50" ng-show="permission === 'financial officer' || permission === 'admin'">Edit</th>
@@ -47,7 +47,7 @@
                 </form>
                 <div class="card" ng-repeat="department in vm.departments">
                     <div class="card-header">
-                        <h3>{{department.name}} <span><i class="fa fa-bars" ng-click="vm.editDepartment(department.guid)"></i> <i class="fa fa-times" ng-click="vm.deleteDepartment(department.guid)"></i></span></h3>
+                        <h3>{{department.name}} <span><i class="fa fa-bars" ng-click="vm.editDepartment(department.guid)" ng-show="permission === 'financial officer' || permission === 'admin'"></i> <i class="fa fa-times" ng-click="vm.deleteDepartment(department.guid)" ng-show="permission === 'financial officer' || permission === 'admin'"></i></span></h3>
                     </div>
                     <div class="card-body">
                         <button class="btn btn-primary btn-sm marginbottom" ng-click="vm.addSource(department.guid)" ng-show="permission === 'financial officer' || permission === 'admin'">Add Expense</button>

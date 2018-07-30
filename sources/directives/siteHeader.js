@@ -54,7 +54,7 @@ angular.module('gt-tri').directive('siteHeader', function () {
                 };
 
                 $scope.goToBudget  = function () {
-                    $state.go('Budget');
+                    $state.go('Budgets');
                 };
 
                 $scope.goToTransactions = function () {

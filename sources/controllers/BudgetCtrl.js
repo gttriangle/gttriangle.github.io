@@ -1,7 +1,7 @@
 (function () {
     'use strict';
-    angular.module('gt-tri').controller('BudgetCtrl', ['$scope', '$state', 'authSvc', 'firebase', '$uibModal', '$firebaseObject', 'deleteModalSvc', 'lineItemModalSvc', BudgetCtrl]);
-    function BudgetCtrl($scope, $state, authSvc, firebase, $uibModal, $firebaseObject, deleteModalSvc, lineItemModalSvc) {
+    angular.module('gt-tri').controller('BudgetCtrl', ['$scope', '$state', '$stateParams', 'authSvc', 'firebase', '$uibModal', '$firebaseObject', 'deleteModalSvc', 'lineItemModalSvc', BudgetCtrl]);
+    function BudgetCtrl($scope, $state, $stateParams, authSvc, firebase, $uibModal, $firebaseObject, deleteModalSvc, lineItemModalSvc) {
         var vm = $scope.vm || {};
         $scope.vm = vm;
 
@@ -100,6 +100,7 @@
                 } else {
                     lineItemModalSvc.showModal({}).then(function (result) {
                         if (!!result) {
+                            $scope.departments[srcDictGuid] = $scope.departments[srcDictGuid] || {};
                             $scope.departments[srcDictGuid].lineItems = $scope.departments[srcDictGuid].lineItems || {};
                             $scope.departments[srcDictGuid].lineItems[genGuid()] = result;
                             watchDepartmentFcn($scope.departments);
@@ -169,11 +170,11 @@
             }
         }
 
-        $firebaseObject(firebase.database().ref().child('Budget').child('Sources')).$bindTo($scope, 'sources').then(function () {
+        $firebaseObject(firebase.database().ref().child('Budget').child($stateParams.guid).child('Sources')).$bindTo($scope, 'sources').then(function () {
             $scope.sources = $scope.sources || {};
             watchSourceFcn($scope.sources);
         });
-        $firebaseObject(firebase.database().ref().child('Budget').child('Departments')).$bindTo($scope, 'departments').then(function () {
+        $firebaseObject(firebase.database().ref().child('Budget').child($stateParams.guid).child('Departments')).$bindTo($scope, 'departments').then(function () {
             for (var guid in $scope.departments) {
                 if (guid[0] !== '$') {
                     $scope.departments[guid].lineItems = $scope.departments[guid].lineItems || {};
