@@ -17,7 +17,9 @@
                     type: "Add",
                     transaction: {
                         to: null,
+                        toAccounts: true,
                         from: null,
+                        fromAccounts: true,
                         date: new Date(),
                         amount: null,
                         memo: null
@@ -39,15 +41,25 @@
             if (!tempModalDefaults.controller) {
                 tempModalDefaults.controller = myModalCtrl;
             }
-            tempModalDefaults.controller.$inject = ['$rootScope', '$scope', '$uibModalInstance', 'toaster'];
+            tempModalDefaults.controller.$inject = ['$scope', '$uibModalInstance', 'toaster', 'firebase', '$firebaseObject'];
             return $uibModal.open(tempModalDefaults).result;
         };
 
-        function myModalCtrl($rootScope, $scope, $uibModalInstance, toaster) {
+        function myModalCtrl($scope, $uibModalInstance, toaster, firebase, $firebaseObject) {
             var vm = {};
             $scope.vm = vm;
             vm.transaction = transaction;
             vm.type = type;
+            vm.accounts = [];
+
+            var promise = $firebaseObject(firebase.database().ref().child('Users')).$loaded(function (result) {
+                vm.accounts.push('Triangle at GT');
+                for (var key in result) {
+                    if (key[0] !== '$' && typeof result[key] !== 'function') {
+                        vm.accounts.push(result[key].name);
+                    }
+                }
+            });
 
             vm.complete = function () {
                 if (vm.transaction.to == null || vm.transaction.from == null || vm.transaction.amount == null || vm.transaction.date == null) {

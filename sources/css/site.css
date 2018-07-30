@@ -8,6 +8,10 @@ blockquote {
     padding-bottom: 20px;
 }
 
+.row {
+    margin: 0px;
+}
+
 #family-tree {
     width:100%;
 }
