@@ -37,8 +37,8 @@
                         <td>{{event.date | date:'MM/dd/yyyy'}}</td>
                         <td>{{event.eventType}}</td>
                         <td scope="row" class="text-center">
-                            <i class="fa fa-exclamation" title="Incomplete" ng-show="!checkIfFormCompleted(event)"></i>
-                            <i class="fa fa-check" title="Complete" ng-show="checkIfFormCompleted(event)"></i>
+                            <i class="fa fa-exclamation" title="Form Incomplete" ng-show="!checkIfFormCompleted(event)"></i>
+                            <i class="fa fa-check" title="Form Complete" ng-show="checkIfFormCompleted(event)"></i>
                         </td>
                     </tr>
                 </tbody>
