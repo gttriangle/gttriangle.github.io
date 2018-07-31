@@ -11,13 +11,14 @@
 
         var anEvent;
         var type;
+        var ogDate = null;
         this.showModal = function (modalData) {
             if (!modalData) {
                 modalData = {
                     type: "Add",
                     eventInfo: {
                         name: null,
-                        date: new Date(),
+                        date: null,
                         eventType: null,
                         planningTime: null,
                         estAttendance: null,
@@ -39,7 +40,14 @@
         this.show = function (modalData) {
             type = modalData.type;
             anEvent = angular.copy(modalData.eventInfo);
-            anEvent.date = new Date(anEvent.date);
+
+            if (modalData.type === 'Edit') {
+                ogDate = new Date(anEvent.date);
+            }
+
+            anEvent.date = (anEvent.date != null) ? new Date(anEvent.date) : new Date;
+            anEvent.date.setHours(0,0,0,0);
+
             var tempModalDefaults = {};
             angular.extend(tempModalDefaults, modalDefaults);
 
@@ -56,13 +64,14 @@
             vm.anEvent = anEvent;
             vm.type = type;
 
-            vm.checkIfDone = function (date) {
+            vm.checkIfEventDone = function (date) {
                 if (date == null) {
                     return false;
                 }
 
                 var now = new Date();
-                if (now > date) {
+                now.setHours(0,0,0,0);
+                if (now >= date) {
                     return true;
                 } else {
                     return false;
@@ -70,14 +79,21 @@
             };
 
             vm.complete = function () {
-                if (vm.checkIfDone(vm.anEvent.date) && (vm.anEvent.name == null || vm.anEvent.date == null || vm.anEvent.eventType == null || vm.anEvent.estAttendance == null
+                var now = new Date();
+                now.setHours(0,0,0,0);
+                if ((ogDate <= now) && (now < vm.anEvent.date)) {
+                    vm.anEvent.happiness = null;
+                    vm.anEvent.attendance = null;
+                }
+
+                if (vm.checkIfEventDone(vm.anEvent.date) && (vm.anEvent.name == null || vm.anEvent.date == null || vm.anEvent.eventType == null || vm.anEvent.estAttendance == null
                     || vm.anEvent.lead == null || vm.anEvent.moneySpent == null || vm.anEvent.structure == null || vm.anEvent.happiness == null || vm.anEvent.attendance == null)) {
                     toaster.pop('error', null, "Only notes can be blank");
-                } else if (!vm.checkIfDone(vm.anEvent.date) && (vm.anEvent.name == null || vm.anEvent.date == null || vm.anEvent.eventType == null || vm.anEvent.estAttendance == null
+                } else if (!vm.checkIfEventDone(vm.anEvent.date) && (vm.anEvent.name == null || vm.anEvent.date == null || vm.anEvent.eventType == null || vm.anEvent.estAttendance == null
                     || vm.anEvent.lead == null || vm.anEvent.moneySpent == null || vm.anEvent.structure == null)) {
                     toaster.pop('error', null, "Only notes can be blank");
                 } else {
-                    vm.anEvent.date = vm.anEvent.date.toLocaleDateString("en-US");
+                    vm.anEvent.date = vm.anEvent.date.toLocaleDateString();
                     $uibModalInstance.close(vm.anEvent);
                 }
             }
