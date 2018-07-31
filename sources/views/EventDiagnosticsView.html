@@ -6,8 +6,8 @@
         <div class="card-body">
             <table class="table table-sm table-hover table-bordered events-container">
                 <thead>
-                    <th scope="col" class="width-50" ng-show="permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">&nbsp;</th>
-                    <th scope="col" class="width-50" ng-show="permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">&nbsp;</th>
+                    <th scope="col" class="width-50" ng-show="permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">View/Edit</th>
+                    <th scope="col" class="width-50" ng-show="permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">Delete</th>
                     <th scope="col" class="event-table-header" ng-click="sortByName()">
                         Event Name
                         <i class="fa fa-sort-asc table-sort" ng-show="vm.sortedBy === 'name'"></i>
@@ -23,7 +23,7 @@
                         <i class="fa fa-sort-asc table-sort" ng-show="vm.sortedBy === 'type'"></i>
                         <i class="fa fa-sort-desc table-sort" ng-show="vm.sortedBy === 'type-reverse'"></i>
                     </th>
-                    <th scope="col" class="width-50" ng-show="permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">&nbsp;</th>
+                    <th scope="col" class="width-50" ng-show="permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">Form Status</th>
                 </thead>
                 <tbody>
                     <tr ng-repeat="event in vm.events">
