@@ -32,10 +32,11 @@
                     temp.permission = newValue;
                     localStorageService.set('authData', temp);
                     $rootScope.$broadcast('permissionChange', newValue);
-                })
+                });
                 allUsers[result.user.uid].lastLogin = (new Date()).toLocaleDateString('en-US', {
                     month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', timeZone: 'UTC', timeZoneName: 'short'
                 });
+                defer.resolve();
             }, function (e) {
                 defer.reject(e.message);
             });
