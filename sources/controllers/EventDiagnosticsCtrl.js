@@ -1,7 +1,7 @@
 (function () {
     'use strict';
-    angular.module('gt-tri').controller('EventDiagnosticsCtrl', ['$scope', '$state', 'authSvc', 'firebase', '$firebaseArray', 'eventModalSvc', 'deleteModalSvc', EventDiagnosticsCtrl]);
-    function EventDiagnosticsCtrl($scope, $state, authSvc, firebase, $firebaseArray, eventModalSvc, deleteModalSvc) {
+    angular.module('gt-tri').controller('EventDiagnosticsCtrl', ['$scope', '$state', 'authSvc', 'firebase', '$firebaseArray', 'eventModalSvc', 'deleteModalSvc', '$window', EventDiagnosticsCtrl]);
+    function EventDiagnosticsCtrl($scope, $state, authSvc, firebase, $firebaseArray, eventModalSvc, deleteModalSvc, $window) {
         $scope.permission = authSvc.permission();
         if (['chair', 'officer', 'financial officer', 'admin'].indexOf($scope.permission) == -1) {
             $state.go('Home');
@@ -72,6 +72,7 @@
             vm.addEvent = function () {
                 eventModalSvc.showModal().then(function (result) {
                     vm.events.$add(result);
+                    $window.location.reload();
                 });
             }
 
@@ -81,6 +82,7 @@
                     if (!!result) {
                         vm.events[idx] = result;
                         vm.events.$save(idx);
+                        $window.location.reload();
                     }
                 });
             }
@@ -90,6 +92,7 @@
                     if (response) {
                         var idx = vm.events.$indexFor(id);
                         vm.events.$remove(vm.events[idx]);
+                        $window.location.reload();
                     }
                 });
             }

@@ -11,6 +11,7 @@
 
         var anEvent;
         var type;
+        var ogDate = null;
         this.showModal = function (modalData) {
             if (!modalData) {
                 modalData = {
@@ -40,7 +41,11 @@
             type = modalData.type;
             anEvent = angular.copy(modalData.eventInfo);
 
-            anEvent.date = new Date(anEvent.date);
+            if (modalData.type === 'Edit') {
+                ogDate = new Date(anEvent.date);
+            }
+
+            anEvent.date = (anEvent.date != null) ? new Date(anEvent.date) : new Date;
             anEvent.date.setHours(0,0,0,0);
 
             var tempModalDefaults = {};
@@ -74,6 +79,13 @@
             };
 
             vm.complete = function () {
+                var now = new Date();
+                now.setHours(0,0,0,0);
+                if ((ogDate <= now) && (now < vm.anEvent.date)) {
+                    vm.anEvent.happiness = null;
+                    vm.anEvent.attendance = null;
+                }
+
                 if (vm.checkIfEventDone(vm.anEvent.date) && (vm.anEvent.name == null || vm.anEvent.date == null || vm.anEvent.eventType == null || vm.anEvent.estAttendance == null
                     || vm.anEvent.lead == null || vm.anEvent.moneySpent == null || vm.anEvent.structure == null || vm.anEvent.happiness == null || vm.anEvent.attendance == null)) {
                     toaster.pop('error', null, "Only notes can be blank");
