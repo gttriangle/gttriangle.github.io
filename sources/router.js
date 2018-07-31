@@ -14,8 +14,17 @@
                 templateUrl: "/sources/views/AdminView.html",
                 params: {obj: null}
             }).state('Budget', {
-                url: "/Budget",
+                url: "/Budget?guid",
                 templateUrl: "/sources/views/BudgetView.html",
+                params: {
+                    guid: {
+                        value: '',
+                        squash: true
+                    }
+                }
+            }).state('Budgets', {
+                url: "/Budgets",
+                templateUrl: "/sources/views/BudgetsView.html",
                 params: {obj: null}
             }).state('Calendar', {
                 url: "/Calendar",

@@ -4,10 +4,11 @@
     function authSvc($q, firebase, $firebaseObject, $firebaseArray, $rootScope, localStorageService, $state) {
 
         var allUsers;
-        var promise = $firebaseObject(firebase.database().ref().child('Users')).$loaded();
-        promise.then(function (result) {
-            allUsers = result;
-        })
+        var uid;
+        var promise = $firebaseObject(firebase.database().ref().child('Users')).$bindTo($rootScope,'allUsers');
+        promise.then(function () {
+            allUsers = $rootScope.allUsers;
+        });
 
         var loginUser = function (email, password) {
             var defer = $q.defer();
@@ -22,11 +23,19 @@
                     permission: allUsers[result.user.uid].permission,
                     logoutTime: logoutTime
                 });
+                uid = result.user.uid;
+                $rootScope.$watch(function () {
+                    return $rootScope.allUsers[uid].permission;
+                }, function (newValue, oldValue) {
+                    if (newValue === oldValue) { return; }
+                    var temp = localStorageService.get('authData');
+                    temp.permission = newValue;
+                    localStorageService.set('authData', temp);
+                    $rootScope.$broadcast('permissionChange', newValue);
+                })
                 allUsers[result.user.uid].lastLogin = (new Date()).toLocaleDateString('en-US', {
                     month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', timeZone: 'UTC', timeZoneName: 'short'
                 });
-                allUsers.$save();
-                defer.resolve();
             }, function (e) {
                 defer.reject(e.message);
             });
@@ -48,12 +57,12 @@
                     allUsers[result.user.uid] = {
                         email: result.user.email,
                         name: name,
-                        permission: 'unregistered'
+                        permission: 'unregistered',
+                        uid: result.user.uid
                     }
-                    allUsers.$save().then(function () {
-                        loginUser(email, password).then(function () {
-                            defer.resolve('Success');
-                        });
+                    allUsers
+                    loginUser(email, password).then(function () {
+                        defer.resolve('Success');
                     });
                 });
             } catch (e) {
@@ -67,6 +76,7 @@
             return {
                 email: authData.email,
                 name: authData.name,
+                uid: authData.uid,
                 permission: authData.permission
             };
         }
@@ -82,10 +92,14 @@
 
         var authData = localStorageService.get('authData');
         if (!!authData && (new Date()) < authData.logoutTime) {
-            loginUser(authData.email, authData.password);
+            loginUser(authData.email, authData.password).catch(function () {
+                logoutUser();
+            });
         } else {
             logoutUser();
         }
+
+
 
         return {
             loggedIn: loggedIn,

@@ -12,6 +12,10 @@
         var promise = $firebaseArray(firebase.database().ref().child('Events')).$loaded($scope, 'anEvent');
         promise.then(function (result) {
             vm.events = result.sort(function (a,b) { return a.date > b.date; });
+            for (var i = 0; i < vm.events.length; i++) {
+                vm.events[i].date = new Date(vm.events[i].date);
+                vm.events[i].date.setHours(0,0,0,0);
+            }
         });
 
         vm.sortedBy = 'date';
@@ -46,18 +50,18 @@
             }
         }
 
-        $scope.checkIfEventDone = function (event) {
+        $scope.checkIfFormCompleted = function (event) {
             if (event == null) {
                 return false;
             }
 
             var now = new Date();
+            now.setHours(0,0,0,0);
 
-            if ((now > event.date) && (event.name == null || event.date == null || event.eventType == null || event.estAttendance == null
-                || event.lead == null || event.moneySpent == null || event.structure == null || event.happiness == null || event.attendance == null)) {
+            if ((now >= event.date) && (event.name == null || event.date == null || event.eventType == null || event.estAttendance == null || event.lead == null || event.moneySpent == null || event.structure == null ||
+                typeof event.happiness === 'undefined' || typeof event.attendance === 'undefined' ||  event.happiness == null || event.attendance == null)) {
                 return false;
-            } else if (!(now > event.date) && (event.name == null || event.date == null || event.eventType == null || event.estAttendance == null
-                || event.lead == null || event.moneySpent == null || event.structure == null)) {
+            } else if ((now < event.date) && (event.name == null || event.date == null || event.eventType == null || event.estAttendance == null || event.lead == null || event.moneySpent == null || event.structure == null)) {
                 return false;
             } else {
                 return true

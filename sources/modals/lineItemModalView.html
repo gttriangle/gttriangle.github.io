@@ -1,0 +1,21 @@
+<div class="modal-container">
+    <div class="modal-header">
+        <h3>{{vm.type}} Line Item</h3>
+    </div>
+    <form>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-6">
+                    Name: <input class="form-control" type="text" ng-model="vm.lineItem.name" />
+                </div>
+                <div class="col-md-6">
+                    Amount: <input class="form-control" type="text" limit-text pattern="'^-?\\d*\\.?\\d{0,2}$'" ng-model="vm.lineItem.amount" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="vm.complete()">{{(vm.type == 'add') ? 'Add' : 'Save'}}</button>
+            <button class="btn btn-primary" ng-click="vm.cancel()">Cancel</button>
+        </div>
+    </form>
+</div>

@@ -16,6 +16,12 @@ angular.module('gt-tri').directive('siteHeader', function () {
                     $scope.$apply();
                     return;
                 });
+
+                $scope.$on('permissionChange', function (event, newPermission) {
+                    $scope.permission = newPermission;
+                    $scope.$apply();
+                })
+
                 $scope.login = function () {
                     $state.go('Login');
                 }
@@ -48,7 +54,7 @@ angular.module('gt-tri').directive('siteHeader', function () {
                 };
 
                 $scope.goToBudget  = function () {
-                    $state.go('Budget');
+                    $state.go('Budgets');
                 };
 
                 $scope.goToTransactions = function () {

@@ -17,7 +17,7 @@
                     type: "Add",
                     eventInfo: {
                         name: null,
-                        date: new Date(),
+                        date: null,
                         eventType: null,
                         planningTime: null,
                         estAttendance: null,
@@ -39,7 +39,10 @@
         this.show = function (modalData) {
             type = modalData.type;
             anEvent = angular.copy(modalData.eventInfo);
+
             anEvent.date = new Date(anEvent.date);
+            anEvent.date.setHours(0,0,0,0);
+
             var tempModalDefaults = {};
             angular.extend(tempModalDefaults, modalDefaults);
 
@@ -62,7 +65,8 @@
                 }
 
                 var now = new Date();
-                if (now > date) {
+                now.setHours(0,0,0,0);
+                if (now >= date) {
                     return true;
                 } else {
                     return false;
@@ -77,7 +81,7 @@
                     || vm.anEvent.lead == null || vm.anEvent.moneySpent == null || vm.anEvent.structure == null)) {
                     toaster.pop('error', null, "Only notes can be blank");
                 } else {
-                    vm.anEvent.date = vm.anEvent.date.toLocaleDateString("en-US");
+                    vm.anEvent.date = vm.anEvent.date.toLocaleDateString();
                     $uibModalInstance.close(vm.anEvent);
                 }
             }

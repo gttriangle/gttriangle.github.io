@@ -6,15 +6,21 @@
         <form>
             <div class="row">
                 <div class="col-md-6">
-                    From: <input class="form-control" type="text" ng-model="vm.transaction.from" />
+                    <span>From: <label><input type="checkbox" ng-model="vm.transaction.fromAccounts" />Inside Account</label></span>
+                    <input class="form-control" type="text" ng-show="!vm.transaction.fromAccounts" ng-model="vm.transaction.from" />
+                    <select class="form-control" ng-show="vm.transaction.fromAccounts" ng-model="vm.transaction.from"
+                        ng-options="account for account in vm.accounts"></select>
                 </div>
                 <div class="col-md-6">
-                    To: <input class="form-control" type="text" ng-model="vm.transaction.to" />
+                    <span>To: <label><input type="checkbox" ng-model="vm.transaction.toAccounts" />Inside Account</label></span>
+                    <input class="form-control" type="text" ng-show="!vm.transaction.toAccounts" ng-model="vm.transaction.to" />
+                    <select class="form-control" ng-show="vm.transaction.toAccounts" ng-model="vm.transaction.to"
+                        ng-options="account for account in vm.accounts"></select>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    Amount: <input class="form-control" type="number" ng-model="vm.transaction.amount" />
+                    Amount: <input class="form-control" type="text" limit-text pattern="'^-?\\d*\\.?\\d{0,2}$'" ng-model="vm.transaction.amount" />
                 </div>
                 <div class="col-md-6">
                     Date: <input class="form-control" type="date" ng-model="vm.transaction.date" />
