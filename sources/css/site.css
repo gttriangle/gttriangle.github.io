@@ -45,7 +45,7 @@ blockquote {
     transform: scale(1.3,1.3);
 }
 
-.fa.fa-times:hover {
+.fa.fa-times:hover, .fa.fa-exclamation:hover {
     color: red;
 }
 
