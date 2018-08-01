@@ -23,7 +23,7 @@
                         <i class="fa fa-sort-asc table-sort" ng-show="vm.sortedBy === 'type'"></i>
                         <i class="fa fa-sort-desc table-sort" ng-show="vm.sortedBy === 'type-reverse'"></i>
                     </th>
-                    <th scope="col" class="width-50" ng-show="permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">Form Status</th>
+                    <th scope="col" class="width-125" ng-show="permission === 'chair' || permission === 'officer' || permission === 'financial officer' || permission === 'admin'">Form Status</th>
                 </thead>
                 <tbody>
                     <tr ng-repeat="event in vm.events">
@@ -37,8 +37,8 @@
                         <td>{{event.date | date:'MM/dd/yyyy'}}</td>
                         <td>{{event.eventType}}</td>
                         <td scope="row" class="text-center">
-                            <i class="fa fa-exclamation" title="Form Incomplete" ng-show="!checkIfFormCompleted(event)"></i>
-                            <i class="fa fa-check" title="Form Complete" ng-show="checkIfFormCompleted(event)"></i>
+                            <i class="fa fa-exclamation" title="Incomplete" ng-show="!checkIfFormCompleted(event)"></i>
+                            <i class="fa fa-check" title="Complete" ng-show="checkIfFormCompleted(event)"></i>
                         </td>
                     </tr>
                 </tbody>
