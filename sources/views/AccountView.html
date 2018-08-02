@@ -1,3 +1,33 @@
 <div ng-controller="AccountCtrl">
-    Account Stuff
+    <div class="card">
+        <div class="card-header">
+            <h3>My Account: ${{vm.total}}</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover table-sm">
+                <thead>
+                    <th class="width-200">From</th>
+                    <th class="width-200">To</th>
+                    <th class="width-150">Amount</th>
+                    <th class="width-150">Date</th>
+                    <th>Memo</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="transaction in vm.transactions">
+                        <td>
+                            <h6 ng-show="transaction.boldFrom">{{transaction.from}}</h6>
+                            <div ng-show="!transaction.boldFrom">{{transaction.from}}</div>
+                        </td>
+                        <td>
+                            <h6 ng-show="transaction.boldTo">{{transaction.to}}</h6>
+                            <div ng-show="!transaction.boldTo">{{transaction.to}}</div>
+                        </td>
+                        <td>{{transaction.amount}}</td>
+                        <td>{{transaction.date.toLocaleDateString('en-US')}}</td>
+                        <td>{{transaction.memo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
