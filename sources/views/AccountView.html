@@ -6,23 +6,17 @@
         <div class="card-body">
             <table class="table table-bordered table-hover table-sm">
                 <thead>
-                    <th class="width-200">From</th>
-                    <th class="width-200">To</th>
-                    <th class="width-150" ng-click="vm.sortByAmount()">Amount <span ng-show="vm.sortedBy === 'amount'"><i class="fa fa-caret-up" ng-show="vm.inverted"></i><i class="fa fa-caret-down" ng-show="!vm.inverted"></i></span></th>
+                    <th class="width-200">Account</th>
+                    <th class="width-150">Payment</th>
+                    <th class="width-150">Charge</th>
                     <th class="width-150" ng-click="vm.sortByDate()">Date <span ng-show="vm.sortedBy === 'date'"><i class="fa fa-caret-up" ng-show="vm.inverted"></i><i class="fa fa-caret-down" ng-show="!vm.inverted"></i></span></th>
                     <th>Memo</th>
                 </thead>
                 <tbody>
                     <tr ng-repeat="transaction in vm.transactions">
-                        <td>
-                            <h6 ng-show="transaction.boldFrom">{{transaction.from}}</h6>
-                            <div ng-show="!transaction.boldFrom">{{transaction.from}}</div>
-                        </td>
-                        <td>
-                            <h6 ng-show="transaction.boldTo">{{transaction.to}}</h6>
-                            <div ng-show="!transaction.boldTo">{{transaction.to}}</div>
-                        </td>
-                        <td>{{transaction.amount}}</td>
+                        <td>{{transaction.account}}</td>
+                        <td>{{transaction.payment}}</td>
+                        <td>{{transaction.charge}}</td>
                         <td>{{transaction.date.toLocaleDateString('en-US')}}</td>
                         <td>{{transaction.memo}}</td>
                     </tr>
