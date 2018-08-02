@@ -26,7 +26,7 @@
                         ng-click="vm.deleteTransaction(transaction.$id)"></i></td>
                         <td>{{transaction.from}}</td>
                         <td>{{transaction.to}}</td>
-                        <td>${{transaction.amount}}</td>
+                        <td>{{transaction.amount | currency}}</td>
                         <td>{{transaction.date}}</td>
                         <td>{{transaction.memo}}</td>
                     </tr>

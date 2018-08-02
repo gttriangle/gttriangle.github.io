@@ -6,6 +6,32 @@
         if (['chair', 'officer', 'financial officer', 'admin'].indexOf($scope.permission) == -1) {
             $state.go('Home');
         }
+
+        var changeSuccess = function () {
+            switch (sortedBy) {
+                case 'date':
+                    vm.sortByDate();
+                    vm.sortByDate();
+                    break;
+                case 'to':
+                    vm.sortByTo();
+                    vm.sortByTo();
+                    break;
+                case 'from':
+                    vm.sortByFrom();
+                    vm.sortByFrom();
+                    break;
+                case 'amount':
+                    vm.sortByAmount();
+                    vm.sortByAmount();
+                    break;
+                case 'memo':
+                    vm.sortByMemo();
+                    vm.sortByMemo();
+                    break;
+            }
+        }
+
         $scope.$on('permissionChange', function (event, newPermission) {
             $scope.permission = newPermission;
             if (['chair', 'officer', 'financial officer', 'admin'].indexOf($scope.permission) == -1) {
@@ -19,7 +45,9 @@
             } else {
                 vm.addTransaction = function () {
                     transactionModalSvc.showModal().then(function (result) {
-                        vm.transactions.$add(result);
+                        vm.transactions.$add(result).then(function () {
+                            changeSuccess();
+                        });
                     });
                 }
 
@@ -28,14 +56,18 @@
                     transactionModalSvc.showModal({ transaction: vm.transactions[idx] }).then(function (result) {
                         if (!!result) {
                             vm.transactions[idx] = result;
-                            vm.transactions.$save(idx);
+                            vm.transactions.$save(idx).then(function () {
+                                changeSuccess();
+                            });
                         }
                     });
                 }
 
                 vm.deleteTransaction = function (id) {
                     var idx = vm.transactions.$indexFor(id);
-                    vm.transactions.$remove(idx);
+                    vm.transactions.$remove(idx).then(function () {
+                        changeSuccess();
+                    });
                 }
             }
         })
@@ -44,7 +76,7 @@
         $scope.vm = vm;
         var promise = $firebaseArray(firebase.database().ref().child('Transactions')).$loaded();
         promise.then(function (result) {
-            vm.transactions = result.sort(function (a, b) { return a.date > b.date; });
+            vm.transactions = result.sort(function (a, b) { return new Date(a.date) - new Date(b.date); });
         });
 
         vm.sortedBy = 'date';
@@ -55,7 +87,7 @@
                 vm.transactions.reverse();
                 vm.up = !vm.up;
             } else {
-                vm.transactions.sort(function (a, b) { return a.date > b.date; });
+                vm.transactions.sort(function (a, b) { return new Date(a.date) - new Date(b.date); });
                 vm.sortedBy = 'date';
                 vm.up = true;
             }
@@ -99,7 +131,7 @@
                 vm.transactions.reverse()
                 vm.up = !vm.up;
             } else {
-                vm.transactions.sort(function (a, b) { return a.amount > b.amount; });
+                vm.transactions.sort(function (a, b) { return parseInt(a.amount) - parseInt(b.amount); });
                 vm.sortedBy = 'amount';
                 vm.up = true;
             }
