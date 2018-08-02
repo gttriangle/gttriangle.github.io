@@ -15,8 +15,12 @@
                 <tbody>
                     <tr ng-repeat="transaction in vm.transactions">
                         <td>{{transaction.account}}</td>
-                        <td>{{transaction.payment}}</td>
-                        <td>{{transaction.charge}}</td>
+                        <td><div ng-show="!!transaction.payment">
+                            {{transaction.payment | currency}}
+                        </div></td>
+                        <td><div ng-show="!!transaction.charge">
+                            {{transaction.charge | currency}}
+                        </div></td>
                         <td>{{transaction.date.toLocaleDateString('en-US')}}</td>
                         <td>{{transaction.memo}}</td>
                     </tr>
