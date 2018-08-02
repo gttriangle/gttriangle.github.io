@@ -12,6 +12,28 @@
             });
         };
 
+        vm.sortByDate = function () {
+            if (vm.sortedBy != 'date') {
+                vm.transactions.sort(function (a, b) { return b.date - a.date; });
+                vm.sortedBy = 'date';
+                vm.inverted = false;
+            } else {
+                vm.transactions.reverse();
+                vm.inverted = !vm.inverted;
+            }
+        }
+
+        vm.sortByAmount = function () {
+            if (vm.sortedBy != 'amount') {
+                vm.transactions.sort(function (a, b) { return parseInt(b.amount) - parseInt(a.amount); });
+                vm.sortedBy = 'amount';
+                vm.inverted = false;
+            } else {
+                vm.transactions.reverse();
+                vm.inverted = !vm.inverted;
+            }
+        }
+
         var updatePage = function () {
             vm.transactions = [];
             vm.total = 0;
@@ -41,6 +63,7 @@
                     vm.total -= parseInt(item.amount);
                 }
             });
+            vm.sortByDate();
         }
 
         var promise = $firebaseArray(firebase.database().ref().child('Transactions')).$loaded();
