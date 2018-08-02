@@ -12,6 +12,12 @@ blockquote {
     margin: 0px;
 }
 
+.card {
+    margin-bottom: 15px;
+    
+    padding: 0px !important;
+}
+
 #family-tree {
     width:100%;
 }
