@@ -42,7 +42,7 @@
 
         var vm = $scope.vm || {}
         $scope.vm = vm;
-        var promise = $firebaseArray(firebase.database().ref().child('Transactions')).$loaded($scope, 'transactions');
+        var promise = $firebaseArray(firebase.database().ref().child('Transactions')).$loaded();
         promise.then(function (result) {
             vm.transactions = result.sort(function (a, b) { return a.date > b.date; });
         });
