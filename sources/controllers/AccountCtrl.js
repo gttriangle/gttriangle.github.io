@@ -41,22 +41,18 @@
             vm.dbList.forEach(function (item) {
                 if (item.fromAccounts && user == item.from) {
                     vm.transactions.push({
-                        from: item.from,
-                        boldFrom: true,
-                        to: item.to,
-                        boldTo: false,
-                        amount: item.amount,
+                        account: item.to,
+                        payment: item.amount,
+                        charge: '',
                         date: new Date(item.date),
                         memo: item.memo
                     });
                     vm.total += parseInt(item.amount);
                 } else if (item.toAccounts && user == item.to) {
                     vm.transactions.push({
-                        from: item.from,
-                        boldFrom: false,
-                        to: item.to,
-                        boldTo: true,
-                        amount: item.amount,
+                        account: item.from,
+                        payment: '',
+                        charge: item.amount,
                         date: new Date(item.date),
                         memo: item.memo
                     });
