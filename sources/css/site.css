@@ -8,6 +8,11 @@ blockquote {
     padding-bottom: 20px;
 }
 
+.node {
+    padding-left: .75rem !important;
+    padding-right: .75rem !important;
+}
+
 .row {
     margin: 0px;
 }
