@@ -8,6 +8,10 @@ blockquote {
     padding-bottom: 20px;
 }
 
+.image {
+    width: 75%;
+}
+
 .row {
     margin: 0px;
 }
