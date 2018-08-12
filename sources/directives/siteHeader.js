@@ -69,7 +69,7 @@ angular.module('gt-tri').directive('siteHeader', function () {
                     $state.go('FamilyTrees');
                 };
             }],
-            template: `<div class="siteHeader-container col-md-12">
+            template: `<div class="site-header-container col-md-12">
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
                 <div class="container-fluid">
                     <div class="nav-bar-header">

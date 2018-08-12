@@ -1,3 +1,31 @@
 <div ng-controller="AccountCtrl">
-    Account Stuff
+    <div class="card">
+        <div class="card-header">
+            <h3>My Account: ${{vm.total}}</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover table-sm">
+                <thead>
+                    <th class="width-200">Account</th>
+                    <th class="width-150">Payment</th>
+                    <th class="width-150">Charge</th>
+                    <th class="width-150" ng-click="vm.sortByDate()">Date <span ng-show="vm.sortedBy === 'date'"><i class="fa fa-caret-up" ng-show="vm.inverted"></i><i class="fa fa-caret-down" ng-show="!vm.inverted"></i></span></th>
+                    <th>Memo</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="transaction in vm.transactions">
+                        <td>{{transaction.account}}</td>
+                        <td><div ng-show="!!transaction.payment">
+                            {{transaction.payment | currency}}
+                        </div></td>
+                        <td><div ng-show="!!transaction.charge">
+                            {{transaction.charge | currency}}
+                        </div></td>
+                        <td>{{transaction.date.toLocaleDateString('en-US')}}</td>
+                        <td>{{transaction.memo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
